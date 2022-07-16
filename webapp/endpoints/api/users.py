@@ -3,19 +3,19 @@
 from fastapi import APIRouter, Depends, Response, status
 from dependency_injector.wiring import inject, Provide
 
-from .containers import Container
-from .services import UserService
-from .repositories import NotFoundError
+from ...containers import Container
+from ...services.users import UserService
+from ...repositories.users import NotFoundError
+from ..routers import router,router_api_get
 
-router = APIRouter()
-
-
-@router.get("/users")
+@router_api_get("{app_name}/users")
 @inject
-def get_list(
+async def get_list(
+        app_name:str,
         user_service: UserService = Depends(Provide[Container.user_service]),
 ):
-    return user_service.get_users()
+    return  dict(message='ok')
+    # return await user_service.get_users()
 
 
 @router.get("/users/{user_id}")
