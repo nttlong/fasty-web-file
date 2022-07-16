@@ -1,0 +1,8 @@
+db:
+  host: localhost
+  port: 27017
+  username: 'ok'
+  password: 'yes'
+  authSource: 'long-test'
+  #replicaSet: rs0
+  authMechanism: SCRAM-SHA-1
