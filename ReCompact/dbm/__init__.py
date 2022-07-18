@@ -265,7 +265,13 @@ def __on__init__(*args, **kwargs):
         fields = instance.__meta__.__fields__
         data = {}
         for k,v in fields.items():
-            data[k] = kwargs.get(k)
+            if isinstance(v,ReCompact.dbm.field):
+                if issubclass(v.data_type,bson.objectid.ObjectId) and kwargs.get(k) is not None:
+                    data[k] = bson.objectid.ObjectId(str(kwargs.get(k)))
+                else:
+                    data[k] = kwargs.get(k)
+            else:
+                data[k] = kwargs.get(k)
         instance.__dict__['__fields__'] = data
         return
     if isinstance(args,tuple) and args.__len__()==2 and isinstance(args[1],dict):
@@ -273,7 +279,13 @@ def __on__init__(*args, **kwargs):
         fields = instance.__meta__.__fields__
         data = {}
         for k,v in fields.items():
-            data[k] = args[1].get(k)
+            if isinstance(v,ReCompact.dbm.field):
+                if issubclass(v.data_type,bson.objectid.ObjectId) and args[1].get(k) is not  None:
+                    data[k] = bson.objectid.ObjectId(str(args[1].get(k)))
+                else:
+                    data[k] = args[1].get(k)
+            else:
+                data[k] = args[1].get(k)
         instance.__dict__['__fields__'] = data
         return
     if len(args)==1:

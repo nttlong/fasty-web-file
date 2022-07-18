@@ -652,6 +652,9 @@ class Aggregate:
                         pipe = {**pipe, **{fn: 1}}
                     elif isinstance(fn, dict):
                         pipe = {**pipe, **fn}
+            for k,v in pipe.items():
+                if isinstance(v ,ReCompact.dbm.DbObjects.Docs.Fields):
+                    pipe[k]=v.to_mongodb()
         else:
             raise Exception("selector must be dict or ReCompact.dbm.Docs.Fields")
         alias = {}
@@ -744,25 +747,29 @@ class Aggregate:
 
         return ret
 
-
+from typing import TypeVar, Generic,Iterable
+T = TypeVar('T')
 class DbContext:
     def __init__(self, db_name):
         cnn = get_connection()
 
         self.db = getattr(cnn, db_name)
 
-    async def find_one_async(self, docs, filter):
-        ret = await find_one_async(self.db, docs, filter)
+    async def find_one_async(self, docs:T, filter)->T:
+        ret_dict = await find_one_async(self.db, docs, filter)
+        if ret_dict is None:
+            return None
+        ret = docs.__class__(ret_dict)
         return ret
 
-    def find_one(self, docs, filter):
+    def find_one(self, docs:T, filter)->T:
         return sync(self.find_one_async(docs, filter))
 
-    async def find_async(self, docs, filter, skip=0, limit=100):
+    async def find_async(self, docs, filter, skip=0, limit=100)->Iterable[T]:
         ret = await find_async(self.db, docs, filter, skip, limit)
         return ret
 
-    def find(self, docs, filter, skip=0, limit=100):
+    def find(self, docs:T, filter, skip=0, limit=100)->Iterable[T]:
         return sync(self.find_async(docs, filter, skip, limit))
 
     async def insert_one_async(self, docs, *args, **kwargs):
@@ -783,7 +790,7 @@ class DbContext:
         ret = insert_one(self.db, docs, *args, **kwargs)
         return ret
 
-    def aggregate(self, docs) -> Aggregate:
+    def aggregate(self, docs: object) -> Aggregate:
         return Aggregate(
             self.db,
             docs.__dict__["__collection_name__"],

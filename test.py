@@ -1,12 +1,11 @@
 import syncer
 
-from webapp.containers import Container
 from webapp.database import DbConnection
 from dependency_injector import containers, providers
 from webapp.services.users import UserService
 from dependency_injector.wiring import Provide,inject
-from webapp.repositories.users import UserRepository
-from webapp.contex import AppContext
+from repositories import UserRepository
+from application_context import AppContext
 
 class Container(containers.DeclarativeContainer):
     config = providers.Configuration(yaml_files=["config.yml"])

@@ -1,4 +1,4 @@
-from webapp.repositories import UserRepository
+from repositories import UserRepository
 from unittest import mock
 from models.Model_Users import User
 repository_mock = mock.Mock(spec=UserRepository)
