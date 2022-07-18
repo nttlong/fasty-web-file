@@ -6,3 +6,7 @@ db:
   authSource: 'long-test'
   #replicaSet: rs0
   authMechanism: SCRAM-SHA-1
+front-end:
+  static: /home/dcs-admin/lv_files_service/fasty-web-file/app_front_end/static
+  server-templates: /home/dcs-admin/lv_files_service/fasty-web-file/webapp/templates
+  api-url: 'http://172.16.13.72:8012/api'
