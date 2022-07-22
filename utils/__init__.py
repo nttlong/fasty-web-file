@@ -19,7 +19,7 @@ def get_token_url(config_provider=Provide[Container.config]):
 Quản lý JWT
 """
 from fastapi import HTTPException
-from typing import Dict, Optional
+from typing import Dict, Optional, Any
 
 from starlette.requests import Request
 from typing import Union
@@ -34,6 +34,10 @@ import jose
 from starlette.status import HTTP_401_UNAUTHORIZED
 
 from application_context import AppContext
+
+
+class Token(BaseModel):
+    access_token: str
 
 
 class Settings(BaseModel):
@@ -95,8 +99,30 @@ def get_app_context(app_context: AppContext = Provide[Container.app_context]) ->
     return app_context
 
 
-@inject
-class OAuth2Redirect(OAuth2):
+class TokenInfo:
+    def __init__(self):
+        self.app_name: str = None
+        self.username:str = None
+
+
+def get_token_info(token: str) -> TokenInfo:
+    ret_data = jwt.decode(token, SECRET_KEY,
+                          algorithms=[ALGORITHM],
+                          options={"verify_signature": False},
+                          )
+    ret = TokenInfo()
+
+    ret.username = ret_data.get("sub")
+    ret.app_name = ret_data.get("app_name")
+    return ret
+
+
+class OAuth2AndGetUserInfo(OAuth2):
+    """
+    Chứng thực token đồng thời lấy thông tin username và app_name
+    set vào request
+    """
+
     def __init__(
             self,
             scheme_name: Optional[str] = None,
@@ -124,8 +150,8 @@ class OAuth2Redirect(OAuth2):
                                   options={"verify_signature": False},
                                   )
 
-            setattr(request, "username", ret_data.get("sup"))
-            setattr(request, "application_name", ret_data.get("application"))
+            setattr(request, "username", ret_data.get("sub"))
+            setattr(request, "app_name", ret_data.get("app_name"))
 
 
         except jose.exceptions.JWTError:
@@ -141,3 +167,13 @@ class OAuth2Redirect(OAuth2):
                 headers={"WWW-Authenticate": "Bearer"},
             )
         return token
+
+
+from passlib.context import CryptContext
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+
+def verify_password(plain_password, hashed_password):
+    global pwd_context
+    return pwd_context.verify(plain_password, hashed_password)

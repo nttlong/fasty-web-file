@@ -27,6 +27,8 @@ class FileRepository(BaseRepository):
             docs.Files.HasThumb,
             docs.Files.OCRFileId,
             docs.Files.PdfFileId,
+            docs.Files.FileNameOnly,
+            docs.Files.FileExt,
             FileSize=docs.Files.SizeInBytes,
             ModifiedOn=docs.Files.LastModifiedOn,
             UploadId=docs.Files._id,
@@ -47,8 +49,9 @@ class FileRepository(BaseRepository):
         ret = await agg.to_list_async()
         return ret
 
-    async def get_upload_by_id(self, upload_id)->docs.DocUploadRegister:
-        ret = await self.db_context.find_one_async(
+    async def get_upload_by_id(self,app_name:str, upload_id)->models.documents.Files:
+        db_name = self.app_context.get_db_name(app_name)
+        ret = await self.db_context(db_name).find_one_async(
             docs.Files,
             docs.Files._id==upload_id
         )
@@ -56,9 +59,17 @@ class FileRepository(BaseRepository):
         return ret
 
     async def add_new_register_upload(self, app_name, register:models.documents.DocUploadRegister):
-        db_name= self.app_context.get_db_name(app_name)
+        db_name = self.app_context.get_db_name(app_name)
         ret= await self.db_context(db_name).insert_one_async(
             models.documents.Files,
+            register.DICT
+        )
+
+    async def update_register(self, app_name:str, register:models.documents.Files):
+        db_name = self.app_context.get_db_name(app_name)
+        await self.db_context(db_name).update_one_async(
+            models.documents.Files,
+            models.documents.Files._id == register._id,
             register.DICT
         )
 

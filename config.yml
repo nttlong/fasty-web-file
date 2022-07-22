@@ -1,4 +1,4 @@
-db:
+db__:
   host: 192.168.18.36
   port: 27018
   username: 'admin-doc'
@@ -6,10 +6,30 @@ db:
   authSource: 'lv-docs'
 #  replicaSet: ''
   authMechanism: SCRAM-SHA-1
+db:
+  host: localhost
+  port: 27018
+  username: 'root'
+  password: '123456'
+  authSource: 'admin'
+  #  replicaSet: ''
+  authMechanism: SCRAM-SHA-1
+db_:
+  host: localhost
+  port: 27017
+  username: 'ok'
+  password: 'yes'
+  authSource: 'long-test'
+#  replicaSet: ''
+  authMechanism: SCRAM-SHA-1
 front-end:
-  static: C:/projects/python/fasty-web-file/app_front_end/static
-  server-templates: C:/projects/python/fasty-web-file/webapp/templates
-  api-url: 'http://172.16.7.25:8012/api'
+  static: ./resource/static
+  server-templates: ./resource/server/templates
+  api-url: http://192.168.1.2:8012/api
+front-end-:
+  static: ./resource/static
+  server-templates: ./resource/server/templates
+  api-url: 'http://192.168.1.2:8012/api'
 single-page-application:
   main-page: index.html
 jwt:
@@ -33,5 +53,37 @@ core:
       level: "DEBUG"
       handlers: ["console"]
 host:
-  bind: 172.16.7.25
+  bind:  192.168.1.2
   port: 8012
+  schema: http
+  domain:  192.168.1.2
+host_:
+  bind: 0.0.0.0
+  port: 8012
+  schema: http
+  domain: 0.0.0.0
+
+storage:
+  type: mongodb
+  s3:
+    access-key-id: AKIAS7SHGPQS4TK52EG7
+    secret-access-key: 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
+    tmp-directory: //192.168.18.36/Share/s3-tmp
+  file:
+    location: //192.168.18.36/Share/s3-tmp
+  mongodb_:
+    host: 192.168.18.36
+    port: 27018
+    username: 'admin-doc'
+    password: '123456'
+    authSource: 'lv-docs'
+    #  replicaSet: ''
+    authMechanism: SCRAM-SHA-1
+  mongodb:
+    host: localhost
+    port: 27018
+    username: 'root'
+    password: '123456'
+    authSource: 'admin'
+    #  replicaSet: ''
+    authMechanism: SCRAM-SHA-1

@@ -3,6 +3,7 @@ import os.path
 
 from dependency_injector import containers, providers
 
+from repositories.s3_repository import FileStorageS3DbRepository
 from .database import DbConnection
 from repositories.apps import AppRepository
 from repositories.file_storage_base import FileStorageBaseRepository
@@ -72,11 +73,26 @@ class Container(containers.DeclarativeContainer):
         session_factory=db.provided.session,
         app_context=app_context
     )
-    file_storage_repository: FileStorageBaseRepository = providers.Factory(
-        FileStorageMongoDbRepository,
-        app_context=app_context,
-        db=db
-    )
+    file_storage_repo: FileStorageBaseRepository =None
+    if config.get('storage').get('type') =='s3':
+        file_storage_repo: FileStorageBaseRepository = providers.Factory(
+            FileStorageS3DbRepository,
+            app_context=app_context,
+            config=config
+        )
+    if config.get('storage').get('type') =='mongodb':
+        file_storage_repo: FileStorageBaseRepository = providers.Factory(
+            FileStorageMongoDbRepository,
+            app_context=app_context,
+            config = config
+            )
+    if config.get('storage').get('type') =='file':
+        file_storage_repo: FileStorageBaseRepository = providers.Factory(
+            FileStorageMongoDbRepository,
+            app_context=app_context,
+            config = config
+            )
+
 
     user_service = providers.Factory(
         UserService,
@@ -92,7 +108,8 @@ class Container(containers.DeclarativeContainer):
     apps_services = providers.Factory(
         AppService,
         app_repository = app_repository,
-        app_context = app_context
+        app_context = app_context,
+        config = config
     )
     file_service = providers.Factory(
         FileService,
@@ -100,5 +117,5 @@ class Container(containers.DeclarativeContainer):
     )
     file_storage_service = providers.Factory(
         FileStorageService,
-        file_storage_repository = file_storage_repository
+        file_storage_repository = file_storage_repo
     )

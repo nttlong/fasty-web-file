@@ -5,7 +5,7 @@ from dependency_injector.wiring import inject, Provide
 
 from webapp.containers import Container
 from application_context import AppContext
-from utils import OAuth2Redirect
+from utils import OAuth2AndGetUserInfo
 from webapp.services.files import FileService
 from fastapi import Request
 from typing import Union
@@ -44,7 +44,7 @@ async def get_list(
         file_service: FileService = Depends(Provide[Container.file_service]),
         config:dict =Depends(Provide[Container.config]),
         app_context:AppContext =Depends(Provide[Container.app_context]),
-        auth=Depends(OAuth2Redirect()),
+        auth=Depends(OAuth2AndGetUserInfo()),
 
 ):
     """
@@ -66,11 +66,13 @@ async def get_list(
     url = config.get('front-end').get('api-url')
     for x in lst_of_files:
         full_filename_without_extenstion = x.get(docs.Files.FullFileNameWithoutExtenstion.__name__)
+        point_to_file =f"/{app_name}/file/{x['UploadId']}/{x[docs.Files.FileName.__name__]}"
         # x["UrlOfServerPath"] = url + f"/{app_name}/file/{x[docs.Files.FullFileName.__name__]}?{share_key.key}={share_key.value}"
-        x["UrlOfServerPath"] = url + f"/{app_name}/file/{x[docs.Files.FullFileName.__name__]}"
+        x["UrlOfServerPath"] = url + point_to_file
         x["AppName"] = app_name
-        x["RelUrlOfServerPath"] = f"/{app_name}/file/{x[docs.Files.FullFileName.__name__]}"
-        x["ThumbUrl"] = url + f"/{app_name}/thumb/{x['UploadId']}/{x[docs.Files.FileName.__name__]}.png"
+        x["RelUrlOfServerPath"] = point_to_file
+        if x.get("HasThumb",False):
+            x["ThumbUrl"] = url + f"/{app_name}/file/{x['UploadId']}/thumb/{x[docs.Files.FileName.__name__]}.png"
         if x.get("Media") and x["Media"].get("Duration"):
             x["DurationHumanReadable"] = strftime("%H:%M:%S", gmtime(x["Media"]["Duration"]))
         if x.get(docs.Files.OCRFileId.__name__):
@@ -82,5 +84,6 @@ async def get_list(
         if x.get(docs.Files.PdfFileId.__name__):
             x.get(docs.Files.PdfFileId.__name__)
             x["PdfContentUrl"] = url + f"/{app_name}/file-pdf/{full_filename_without_extenstion}.pdf"
+
     return lst_of_files
 

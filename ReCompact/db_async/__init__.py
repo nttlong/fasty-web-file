@@ -17,7 +17,8 @@ import pymongo.mongo_client
 # from motor import MotorGridFSBucket
 from motor.motor_asyncio import AsyncIOMotorGridFSBucket
 from bson import ObjectId
-
+db_version:str =None
+db_version_info=None
 
 class PyObjectId(ObjectId):
     """ Custom Type for reading MongoDB IDs """
@@ -614,9 +615,14 @@ def get_connection(*args,**kwargs) -> motor.motor_asyncio.AsyncIOMotorClient:
     global __connection__
     if args and isinstance(args, tuple) and args.__len__()> 0 and isinstance(args[0],dict):
         __create_connect__(args[0])
+        global db_version
+        global db_version_info
+        db_version = get_db_verion()
+        db_version_info =db_version.split('.')
         return  __connection__
     if __connection__ is None:
         raise Exception(f"Thy shoul call Recompact.db_async.load_config")
+
     return __connection__
 
 
@@ -813,7 +819,10 @@ class DbContext:
         ret = await self.get_grid_fs().open_download_stream(file_id)
         return ret
 
-
+def get_db_verion()->str:
+    global default_db_name
+    db = get_db_context(default_db_name)
+    return db.db.delegate.command({'buildInfo':1})['version']
 def get_db_context(db_name) -> DbContext:
     global __all_instances_db_context__
     global __lock_2__

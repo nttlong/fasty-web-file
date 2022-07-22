@@ -29,3 +29,11 @@ class AppRepository(BaseRepository):
             models.documents.Apps,
             models.documents.Apps.Name==app_name_to_get.lower()
         )
+
+    async def create(self, app):
+        db_name = self.app_context.get_db_name('admin')
+        ret= await self.db_context(db_name).insert_one_async(
+            models.documents.Apps,
+            app.DICT
+        )
+        return ret

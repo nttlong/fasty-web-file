@@ -1,7 +1,7 @@
 
 dependency-injector~=4.39.1
 fastapi~=0.79.0
-pymongo~=4.1.1
+
 uvicorn~=0.18.2
 motor~=3.0.0
 pyYAML~=6.0
@@ -21,3 +21,6 @@ fastapi-jwt-auth~=0.5.0
 bcrypt~=3.2.2
 boto3~=1.24.33
 humanize~=4.2.3
+pymongo~=4.2.0
+smart-open~=6.0.0
+

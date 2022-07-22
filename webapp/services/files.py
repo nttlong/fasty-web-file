@@ -20,8 +20,8 @@ class FileService(BaseService):
     async def get_all(self,app_name:str, page_size: int, page_index: int, field_search: str, value_search: str):
         return await self.file_repository.get_all(app_name,page_size, page_index, field_search, value_search)
 
-    async def get_upload_by_id(self,aapp_name:str, upload_id: str):
-        return await self.file_repository.get_upload_by_id(upload_id)
+    async def get_upload_by_id(self,app_name:str, upload_id: str)->models.documents.Files:
+        return await self.file_repository.get_upload_by_id(app_name,upload_id)
 
     async def add_new_register_upload(self, app_name, register:models.documents.DocUploadRegister)->models.documents.DocUploadRegister:
         server_file_name_only = str(uuid.uuid4())
@@ -34,9 +34,10 @@ class FileService(BaseService):
         register.FileExt = os.path.splitext(register.FileName)[1][1:]
         register.FileNameLower = register.FileName.lower()
         register.FileNameOnly = pathlib.Path(register.FileName).stem
-        register.FullFileNameWithoutExtenstion = register.FileNameOnly
+        register.FullFileNameWithoutExtenstion =f"{register._id}/{register.FileNameOnly}"
         register.FullFileNameWithoutExtenstionLower = register.FullFileNameWithoutExtenstion.lower()
-        register.FullFileNameLower = register.FileName.lower()
+        register.FullFileName = f"{register._id}/{register.FileName}"
+        register.FullFileNameLower = register.FullFileName.lower()
         register.HasThumb = False
         register.MimeType, _ = mimetypes.guess_type(register.FileName)
 
@@ -49,3 +50,7 @@ class FileService(BaseService):
         register.SizeInHumanReadable = humanize.filesize.naturalsize(register.SizeInBytes)
         await self.file_repository.add_new_register_upload(app_name,register)
         return register
+
+    async def update_register(self, app_name, register:models.documents.DocUploadRegister):
+
+        await self.file_repository.update_register(app_name,register)

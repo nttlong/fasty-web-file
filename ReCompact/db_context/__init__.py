@@ -6,8 +6,7 @@ import yaml
 import gridfs
 import bson
 import pymongo.database
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler
+
 import io
 from gridfs import GridFSBucket
 __lock__ = threading.Lock()

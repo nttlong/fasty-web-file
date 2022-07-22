@@ -7,7 +7,7 @@ from models.ModelApps import sys_applications
 from ..client_model.app import RequestAppInfo
 from webapp.containers import Container
 from webapp.services.apps import AppService
-from utils import OAuth2Redirect
+from utils import OAuth2AndGetUserInfo
 
 
 
@@ -15,7 +15,7 @@ from utils import OAuth2Redirect
 async def app_get_list(
         app_name: str,
         app_service: AppService = Depends(Provide[Container.apps_services]),
-        auth=Depends(OAuth2Redirect())
+        auth=Depends(OAuth2AndGetUserInfo())
 ):
     ret= await app_service.get_all(app_name)
     return ret
@@ -26,7 +26,7 @@ async def app_get(
         app_name: str,
         app_name_get:str,
         app_service: AppService = Depends(Provide[Container.apps_services]),
-        auth=Depends(OAuth2Redirect())
+        auth=Depends(OAuth2AndGetUserInfo())
 ):
     ret = await app_service.get_app_by_name(app_name,app_name_get)
     if ret is None:
@@ -38,7 +38,7 @@ async def app_update(
         app_edit: str,
         Data: RequestAppInfo = Body(embed=True),
         app_service: AppService = Depends(Provide[Container.apps_services]),
-        auth=Depends(OAuth2Redirect())
+        auth=Depends(OAuth2AndGetUserInfo())
 ):
 
     app = sys_applications(
@@ -51,3 +51,15 @@ async def app_update(
     if ret is None:
         return {}
     return ret.DICT
+
+@inject
+async def app_create(
+        app_name: str,
+        Data: RequestAppInfo = Body(embed=True),
+        app_service: AppService = Depends(Provide[Container.apps_services]),
+        auth=Depends(OAuth2AndGetUserInfo())
+):
+    if app_name=='admin':
+        app= models.documents.sys_applications(Data.__dict__)
+        ret= await app_service.create(app)
+    return {}
