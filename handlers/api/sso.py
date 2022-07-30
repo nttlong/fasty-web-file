@@ -1,17 +1,13 @@
-import datetime
-import uuid
 from dependency_injector.wiring import inject, Provide
 from webapp.containers import Container
-from fastapi import Depends, status, Response
-from fastapi.responses import RedirectResponse, HTMLResponse
-import uuid
+from fastapi import Depends, status
+from fastapi.responses import RedirectResponse
 
 import utils
-from ReCompact.db_async import get_db_context,default_db_name
-from  fastapi import Request, Response
+from  fastapi import Request
 # @fasty.api_post("/get_sso_token")
-from webapp.services.accounts import AccountsService
-from webapp.services.apps import AppService
+from services.accounts import AccountsService
+from services.apps import AppService
 
 
 @inject

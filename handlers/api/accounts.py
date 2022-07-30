@@ -1,17 +1,14 @@
-import uuid
-
 from dependency_injector.wiring import inject, Provide
 from fastapi_jwt_auth import AuthJWT
 from fastapi.security import OAuth2PasswordRequestForm
 from fastapi import Depends, HTTPException, status
 
 import models.documents
-from application_context import AppContext
-from webapp.services.accounts import AccountsService
+from services.accounts import AccountsService
 from webapp.containers import Container
 from pydantic import BaseModel
 
-from webapp.services.users import UserService
+from services.users import UserService
 
 
 class User(BaseModel):

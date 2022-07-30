@@ -24,3 +24,4 @@ humanize~=4.2.3
 pymongo~=4.2.0
 smart-open~=6.0.0
 
+kafka-python~=2.0.2

@@ -206,7 +206,7 @@ class BaseFields(object):
 class Fields(BaseFields):
     """
     Mongodb parable document field example:
-    Fields().Amount*Fields().Price will be compile to {'$multiply': ['$Amount', '$Price']}
+    BsonDocumentObject().Amount*BsonDocumentObject().Price will be compile to {'$multiply': ['$Amount', '$Price']}
     """
 
     def __getattr__(self, item):
@@ -269,7 +269,7 @@ class Fields(BaseFields):
                 else:
                     f_r = {}
                     for x in item:
-                        r= __real_dict__(x.to_mongodb())
+                        r= __real_dict__(x.to_bson())
                         f_r=__merge__(r,f_r)
                     r_lst+=[f_r]
             if is_all_tuple:
@@ -281,7 +281,7 @@ class Fields(BaseFields):
         if isinstance(other,tuple):
             f_r={}
             for x in other:
-                r= __real_dict__(x.to_mongodb())
+                r= __real_dict__(x.to_bson())
                 f_r=__merge__(r,f_r)
             self.__tree__ = {
                 self.__name__: f_r

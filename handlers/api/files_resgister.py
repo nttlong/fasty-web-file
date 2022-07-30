@@ -8,7 +8,7 @@ from fastapi import Depends, Body
 from dependency_injector.wiring import inject, Provide
 from handlers.client_model.files_register import RegisterUploadInfoResult, RegisterUploadInfo, RegisterUploadResult
 from utils import OAuth2AndGetUserInfo
-from webapp.services.files import FileService
+from services.files import FileService
 
 """
 Cấu trúc trả về

@@ -6,7 +6,7 @@ from dependency_injector.wiring import inject, Provide
 from webapp.containers import Container
 from application_context import AppContext
 from utils import OAuth2AndGetUserInfo
-from webapp.services.files import FileService
+from services.files import FileService
 from fastapi import Request
 from typing import Union
 from models import documents as docs

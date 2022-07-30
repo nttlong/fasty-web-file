@@ -65,7 +65,7 @@ class Aggregate:
         elif isinstance(filter, dict):
             self.pipeline += [{"$match": filter}]
         else:
-            raise Exception("match must be call with ReCompact.dbm.DbObjects.Docs.Fields or dict")
+            raise Exception("match must be call with ReCompact.dbm.DbObjects.Docs.BsonDocumentObject or dict")
         return self
 
     @property
@@ -140,7 +140,7 @@ class SelectAggregate(OwnerAggregate):
                         if x[0].__tree__ == None:
                             project_pinline[x[1]] = "$" + x[0].__name__
                         else:
-                            project_pinline[x[1]] = "$" + x[0].to_mongodb()
+                            project_pinline[x[1]] = "$" + x[0].to_bson()
         self.owner.__dict__["__pipeline__"] += [{"$project": project_pinline}]
         return self.owner
 

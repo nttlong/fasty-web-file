@@ -302,7 +302,7 @@ def update_many(*args, **kwargs):
     db, instance, coll, filter, data = get_all_args_with_filter(*args, **kwargs)
     assert isinstance(coll, pymongo.database.Collection)
     try:
-        ret = coll.update_many(filter=filter.to_mongodb(),
+        ret = coll.update_many(filter=filter.to_bson(),
                                update=data)
         return ret
     except pymongo.errors.DuplicateKeyError as e:
@@ -325,7 +325,7 @@ def update_one(*args, **kwargs):
     db, instance, coll, filter, data = get_all_args_with_filter(*args, **kwargs)
     assert isinstance(coll, pymongo.database.Collection)
     try:
-        ret = coll.update_many(filter=filter.to_mongodb(),
+        ret = coll.update_many(filter=filter.to_bson(),
                                update=data)
         return data
     except pymongo.errors.DuplicateKeyError as e:

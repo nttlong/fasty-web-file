@@ -4,9 +4,9 @@ from dependency_injector.wiring import inject, Provide
 from fastapi import Depends
 
 import utils.htt_streaming
-from webapp.services.files import FileService
+from services.files import FileService
 from webapp.containers import Container
-from webapp.services.file_storage import FileStorageService
+from services.file_storage import FileStorageService
 from fastapi import Request
 
 @inject

@@ -4,7 +4,7 @@ from fastapi import Depends, Response, status
 from dependency_injector.wiring import inject, Provide
 
 from webapp.containers import Container
-from webapp.services.users import UserService
+from services.users import UserService
 from repositories.users import NotFoundError
 from ..routers import router,router_api_get
 

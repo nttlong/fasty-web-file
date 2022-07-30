@@ -55,7 +55,7 @@ def update(db, data_item_type, filter, updator):
     assert type(updator) in [ReCompact.dbm.SET,
                              ReCompact.dbm.PUSH], 'updator must be ReCompact.dbm.SET or ReCompact.dbm.PUSH'
     coll = __get_col__(db, data_item_type)
-    ret = coll.update_many(filter.to_mongodb(), updator.to_mongodb())
+    ret = coll.update_many(filter.to_mongodb(), updator.to_bson())
     return ret
 
 

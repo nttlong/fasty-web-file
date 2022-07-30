@@ -2,7 +2,7 @@ import syncer
 
 from webapp.database import DbConnection
 from dependency_injector import containers, providers
-from webapp.services.users import UserService
+from services.users import UserService
 from dependency_injector.wiring import Provide,inject
 from repositories import UserRepository
 from application_context import AppContext

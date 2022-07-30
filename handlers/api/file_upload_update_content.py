@@ -1,10 +1,9 @@
 from  dependency_injector.wiring import inject,Provide
 from fastapi import Form, File, Depends
 
-import webapp.containers
 from utils import OAuth2AndGetUserInfo
-from webapp.services.file_storage import FileStorageService
-from webapp.services.files import FileService
+from services.file_storage import FileStorageService
+from services.files import FileService
 from pydantic import BaseModel
 from pydantic.fields import Field
 from typing import Union

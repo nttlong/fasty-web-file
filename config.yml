@@ -8,7 +8,7 @@ db__:
   authMechanism: SCRAM-SHA-1
 db:
   host: localhost
-  port: 27018
+  port: 27017
   username: 'root'
   password: '123456'
   authSource: 'admin'
@@ -25,7 +25,7 @@ db_:
 front-end:
   static: ./resource/static
   server-templates: ./resource/server/templates
-  api-url: http://192.168.1.2:8012/api
+  api-url: http://172.16.13.72:8012/api
 front-end-:
   static: ./resource/static
   server-templates: ./resource/server/templates
@@ -53,10 +53,10 @@ core:
       level: "DEBUG"
       handlers: ["console"]
 host:
-  bind:  192.168.1.2
+  bind:  172.16.13.72
   port: 8012
   schema: http
-  domain:  192.168.1.2
+  domain:  172.16.13.72
 host_:
   bind: 0.0.0.0
   port: 8012
@@ -81,9 +81,14 @@ storage:
     authMechanism: SCRAM-SHA-1
   mongodb:
     host: localhost
-    port: 27018
+    port: 27017
     username: 'root'
     password: '123456'
     authSource: 'admin'
     #  replicaSet: ''
     authMechanism: SCRAM-SHA-1
+message:
+  type: kafka
+  kafka:
+    brokers:
+      - 0.0.0.0:9092

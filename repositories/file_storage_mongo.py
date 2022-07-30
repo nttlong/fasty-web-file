@@ -107,13 +107,11 @@ class FileStorageMongoDbRepository(FileStorageBaseRepository):
     async def get_len_of_file_stream(self, fsg):
         return fsg.length
     async def read(self, file_obj, read_size):
-        ret = await file_obj.read(read_size)
+        ret =  file_obj.read(read_size)
 
         return ret
     async def close(self, fsg):
-        pass
-        # pass
-        # fsg.close()
+        fsg.close()
 
 
 
@@ -138,7 +136,6 @@ class FileStorageMongoDbRepository(FileStorageBaseRepository):
         await self.close(ret)
         # ret = fs.get(bson.objectid.ObjectId(file_dict["_id"]))
         return ret
-
 
     async def add_binary(self, app_name: str, relative_path: str, data: bytes,file_size_in_bytes:int):
         """
@@ -165,13 +162,7 @@ class FileStorageMongoDbRepository(FileStorageBaseRepository):
         file_name = pathlib.Path(relative_path).name.lower()
         content_type,_ =mimetypes.guess_type(relative_path)
         if file_dict is None:
-            import ReCompact.db_context
-            # mg_file = ReCompact.db_context.mongodb_file_create(
-            #     db.delegate,
-            #     file_name=file_name,
-            #     chunk_size=data.__len__(),
-            #     file_size= file_size_in_bytes
-            # )
+
             gfs= GridFS(db.delegate)
             fs = gfs.new_file()
             fs.name = file_name
@@ -227,7 +218,7 @@ class FileStorageMongoDbRepository(FileStorageBaseRepository):
         import ReCompact.db_context
 
         fs_chunks = db.get_collection("fs.chunks")
-        fs_chunks.insert_one({
+        await fs_chunks.insert_one({
             "_id": bson.objectid.ObjectId(),
             "files_id": file._id,
             "n": chunk_index,

@@ -376,7 +376,7 @@ async def delete_many_async(db, docs, filter):
     elif isinstance(filter, dict):
         _filter = filter
     else:
-        raise Exception("filter must be ReCompact.dbm.Docs.Fields or dict")
+        raise Exception("filter must be ReCompact.dbm.Docs.BsonDocumentObject or dict")
     ret = await coll.delete_many(_filter)
     return ret
 
@@ -400,7 +400,7 @@ async def delete_one_async(db, docs, filter):
     elif isinstance(filter, dict):
         _filter = filter
     else:
-        raise Exception("filter must be ReCompact.dbm.Docs.Fields or dict")
+        raise Exception("filter must be ReCompact.dbm.Docs.BsonDocumentObject or dict")
     ret = await coll.delete_one(_filter)
     return ret
 
@@ -510,7 +510,7 @@ async def update_one_async(db, docs, filter, *args, **kwargs):
             _filter = filter.to_mongodb()
         else:
             raise Exception("filter of db_asycn.update_one_async or db_asycn.update_one \n"
-                            "must be ReCompact.dbm.Docs.Fields or dict\n"
+                            "must be ReCompact.dbm.Docs.BsonDocumentObject or dict\n"
                             "Example:\n"
                             "update_one_async(db,docs,docs._id=='x',docs.Code=='aa')")
         if isinstance(args, tuple):
@@ -524,7 +524,7 @@ async def update_one_async(db, docs, filter, *args, **kwargs):
                         if isinstance(y, dict):
                             data = {**data, **y}
                         elif isinstance(x, ReCompact.dbm.Docs.Fields):
-                            data = {**data, **y.to_mongodb()}
+                            data = {**data, **y.to_bson()}
 
         ret = await coll.update_one(_filter, {"$set": data})
         return data
@@ -548,7 +548,7 @@ def update_one(db, docs, filter, *args, **kwargs):
             _filter = filter.to_mongodb()
         else:
             raise Exception("filter of db_asycn.update_one_async or db_asycn.update_one \n"
-                            "must be ReCompact.dbm.Docs.Fields or dict\n"
+                            "must be ReCompact.dbm.Docs.BsonDocumentObject or dict\n"
                             "Example:\n"
                             "update_one_async(db,docs,docs._id=='x',docs.Code=='aa')")
         if isinstance(args, tuple):
@@ -562,7 +562,7 @@ def update_one(db, docs, filter, *args, **kwargs):
                         if isinstance(y, dict):
                             data = {**data, **y}
                         elif isinstance(x, ReCompact.dbm.Docs.Fields):
-                            data = {**data, **y.to_mongodb()}
+                            data = {**data, **y.to_bson()}
         ret = coll.update_one(_filter, {"$set": data})
         return data
     except pymongo.errors.DuplicateKeyError as e:
@@ -662,7 +662,7 @@ class Aggregate:
                 if isinstance(v ,ReCompact.dbm.DbObjects.Docs.Fields):
                     pipe[k]=v.to_mongodb()
         else:
-            raise Exception("selector must be dict or ReCompact.dbm.Docs.Fields")
+            raise Exception("selector must be dict or ReCompact.dbm.Docs.BsonDocumentObject")
         alias = {}
         for k, v in kwargs.items():
             if isinstance(v, dict):
@@ -727,7 +727,7 @@ class Aggregate:
         if isinstance(filter,ReCompact.dbm.Docs.Fields):
             _filter = filter.to_mongodb()
         elif not isinstance(filter,dict):
-            raise Exception("aggregate match require filter with dict or ReCompact.dbm.Docs.Fields")
+            raise Exception("aggregate match require filter with dict or ReCompact.dbm.Docs.BsonDocumentObject")
         self.pineline+=[
             {"$match":_filter}
         ]

@@ -6,7 +6,7 @@ import models.documents
 from models.ModelApps import sys_applications
 from ..client_model.app import RequestAppInfo
 from webapp.containers import Container
-from webapp.services.apps import AppService
+from services.apps import AppService
 from utils import OAuth2AndGetUserInfo
 
 

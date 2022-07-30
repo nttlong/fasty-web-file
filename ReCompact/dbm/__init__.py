@@ -225,8 +225,8 @@ def __ob_get_attr__(*args, **kwargs):
         if cls.__meta__.__fields__.get(attr_name, None) is not None:
             return getattr(ReCompact.dbm.FIELDS, args[1])
 
-    # if isinstance(type(instance).__dict__.get(attr_name,None),Fields):
-    #     ret = Fields()
+    # if isinstance(type(instance).__dict__.get(attr_name,None),BsonDocumentObject):
+    #     ret = BsonDocumentObject()
     #     ret.__name__ == attr_name
     #     return ret
 
@@ -359,7 +359,7 @@ class SET:
         self.mongo_set = {}
         if isinstance(args, tuple):
             for x in args:
-                for k, v in x.to_mongodb().items():
+                for k, v in x.to_bson().items():
                     self.mongo_set[k] = v
 
     def to_mongodb(self):
@@ -373,7 +373,7 @@ class PUSH:
         self.mongo_set = {}
         if isinstance(args, tuple):
             for x in args:
-                for k, v in x.to_mongodb().items():
+                for k, v in x.to_bson().items():
                     self.mongo_set[k] = v
 
     def to_mongodb(self):

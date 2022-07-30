@@ -4,7 +4,10 @@ from repositories.file_storage_base import FileStorageBaseRepository
 class FileStorageInfo:
     def __init__(self):
         self.size_in_bytes=0
-        self.num_of_chunks = 0
+        self.uploaded_chunk_index = 0
+        """
+        Current chunk index has been uploaded successfully
+        """
 
 class FileStorageService(BaseService):
     def __init__(self,file_storage_repository):
@@ -26,5 +29,5 @@ class FileStorageService(BaseService):
         )
         ret =FileStorageInfo()
         ret.size_in_bytes =size
-        ret.num_of_chunks =num_of_chunks
+        ret.uploaded_chunk_index =num_of_chunks
         return ret
