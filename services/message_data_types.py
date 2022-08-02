@@ -1,3 +1,4 @@
+import broker_group_const
 import must_implement
 
 
@@ -12,6 +13,9 @@ class UploadedFile:
     """
     The accessible content in local file system
     """
-
+    app_name=(str,True)
+    """
+    The name of application has sent this message
+    """
     def __init__(self):
-        self.message_type = "message.file.upload"
+        self.message_type = broker_group_const.MSG_GROUP_FILE_UPLOADED

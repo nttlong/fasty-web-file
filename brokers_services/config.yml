@@ -1,0 +1,4 @@
+brokers:
+  - 0.0.0.0:9092
+api-host: http://172.16.13.72:8012
+out-put-dir: /home/python/code/fasty-web-file/brokers_services/tmp
