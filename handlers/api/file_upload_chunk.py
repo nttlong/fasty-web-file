@@ -111,7 +111,9 @@ async def files_upload(app_name: str,
         from must_implement import new_instance
         uploaded_file = new_instance(msg_dataTypes.UploadedFile,dict(
             relative_file_path = register.FullFileName,
-            content_location = message_service.get_content_location(app_name,register.FullFileName)
+            content_location = message_service.get_content_location(app_name,register.FullFileName),
+            app_name = app_name,
+            upload_id = register._id
 
         ))
 

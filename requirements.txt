@@ -25,3 +25,6 @@ pymongo~=4.2.0
 smart-open~=6.0.0
 
 kafka-python~=2.0.2
+kink~=0.6.5
+PyYAL~=6.0
+Pillow~=9.2.0

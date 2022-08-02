@@ -2,9 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e8b92c7-4fdb-4720-bcc8-0afabcfcc65d" name="Changes" comment="ok">
-      <change afterPath="$PROJECT_DIR$/brokers_services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/brokers_services/containers.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/brokers_services/master.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/process_msg_file_uploaded.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositories/kafka_consumers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repositories/kafka_consumers/base.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/logger_services.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application_context/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/application_context/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/broker_group_const/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/broker_group_const/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/broker_message_files_images_create_thumb.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokers_services/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/brokers_services/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokers_services/configs.py" beforeDir="false" afterPath="$PROJECT_DIR$/brokers_services/configs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokers_services/containers.py" beforeDir="false" afterPath="$PROJECT_DIR$/brokers_services/containers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/must_implement/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/must_implement/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pythonthumb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/message_data_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/message_data_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/containers.py" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/containers.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +61,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;trusted.hosts&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="Push.Settings">
@@ -61,14 +74,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/services" />
       <recent name="$PROJECT_DIR$/webapp/services" />
-      <recent name="$PROJECT_DIR$" />
       <recent name="C:\code\python\fasty-web-file\dokcer-mongodb" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.dev_run">
-    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.process_msg_file_uploaded">
+    <configuration name="broker_message_files_images_create_thumb" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fasty-web-file" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -76,11 +89,32 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pym_docs" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pym_docs/__init__.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/broker_message_files_images_create_thumb.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="broker_message_master" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fasty-web-file" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/brokers_services" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/broker_message_master.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -110,7 +144,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="kfaka" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="process_msg_file_uploaded" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fasty-web-file" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -118,11 +152,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/kfaka.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/process_msg_file_uploaded.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -152,34 +186,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="fasty-web-file" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pym_docs" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pym_docs/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.process_msg_file_uploaded" />
         <item itemvalue="Python.dev_run" />
+        <item itemvalue="Python.broker_message_files_images_create_thumb" />
+        <item itemvalue="Python.broker_message_master" />
         <item itemvalue="Python.test (1)" />
-        <item itemvalue="Python.kfaka" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.__init__" />
       </list>
     </recent_temporary>
   </component>
@@ -255,7 +268,35 @@
       <option name="project" value="LOCAL" />
       <updated>1659431583671</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="ok">
+      <created>1659431747731</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1659431747731</updated>
+    </task>
+    <task id="LOCAL-00011" summary="ok">
+      <created>1659431755594</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1659431755594</updated>
+    </task>
+    <task id="LOCAL-00012" summary="ok">
+      <created>1659431808256</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1659431808256</updated>
+    </task>
+    <task id="LOCAL-00013" summary="ok">
+      <created>1659439123665</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1659439123665</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -315,6 +356,41 @@
           <url>file://$PROJECT_DIR$/must_implement/__init__.py</url>
           <line>65</line>
           <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/broker_message_master.py</url>
+          <line>24</line>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/repositories/file_storage_mongo.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/repositories/kafka_consumers/base.py</url>
+          <line>63</line>
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="137" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/brokers_services/__init__.py</url>
+          <line>23</line>
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/services/logger_services.py</url>
+          <line>7</line>
+          <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/process_msg_file_uploaded.py</url>
+          <line>17</line>
+          <option name="timeStamp" value="153" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

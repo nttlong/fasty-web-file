@@ -166,7 +166,7 @@ def MustDeclare():
 
 def new_instance(cls_type:T,data:dict)->T:
     if not hasattr(cls_type, __FIELD_NAMES_KEY__) and not hasattr(cls_type, __FIELD_SETTINGS_KEY__):
-        cls_type = MustDeclare(cls_type)
+        cls_type = MustDeclare()(cls_type)
     cls_settings = getattr(cls_type,__FIELD_SETTINGS_KEY__)
     cks_keys = cls_settings.keys()
 

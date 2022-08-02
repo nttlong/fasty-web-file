@@ -1,11 +1,13 @@
 """Containers module."""
 import os.path
+import pathlib
 
 from dependency_injector import containers, providers
 
 from repositories.base_message import BaseMessage, FakeMessage
 from repositories.kafka_message import KafkaMessageRepository
 from repositories.s3_repository import FileStorageS3DbRepository
+from services.logger_services import LoggerService
 from services.message import MessageServices
 from .database import DbConnection
 from repositories.apps import AppRepository
@@ -23,7 +25,6 @@ from fastapi.templating import Jinja2Templates
 
 from application_context import AppContext
 
-app = None
 
 
 class Container(containers.DeclarativeContainer):
@@ -37,6 +38,9 @@ class Container(containers.DeclarativeContainer):
     config = providers.Configuration(yaml_files=["config.yml"])
 
     config.load()
+    logger_service: LoggerService = providers.Factory(
+        working_dir=str(pathlib.Path(__file__).parent)
+    )
     templates_dir = config.get('front-end').get('server-templates')
     if not os.path.isdir(templates_dir):
         raise Exception(f"{templates_dir} was not found")
