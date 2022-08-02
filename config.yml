@@ -87,8 +87,10 @@ storage:
     authSource: 'admin'
     #  replicaSet: ''
     authMechanism: SCRAM-SHA-1
+
 message:
   type: kafka
+  temp-dir: /home/python/code/fasty-web-file/tmp
   kafka:
     brokers:
       - 0.0.0.0:9092

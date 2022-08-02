@@ -3,8 +3,9 @@ import humanize
 from fastapi import File, Form, Depends
 from typing import Union
 import threading
-from dependency_injector.wiring import inject,Provide
+from dependency_injector.wiring import inject, Provide
 import services.message_data_types as msg_dataTypes
+
 __lock__ = threading.Lock()
 
 import services.message
@@ -76,20 +77,20 @@ async def files_upload(app_name: str,
                        UploadId: Union[str, None] = Form(...),
                        Index: Union[int, None] = Form(...),
                        auth=Depends(OAuth2AndGetUserInfo()),
-                       file_storage_service: FileStorageService=Depends(Provide[Container.file_storage_service]),
-                       file_service: FileService =Depends(Provide[Container.file_service]),
-                       message_service:services.message.MessageServices=Depends(Provide[Container.message_service])
+                       file_storage_service: FileStorageService = Depends(Provide[Container.file_storage_service]),
+                       file_service: FileService = Depends(Provide[Container.file_service]),
+                       message_service: services.message.MessageServices = Depends(Provide[Container.message_service])
                        ):
     topic_key = "files.services.upload"
     """
     topic báo hiệu 1 file đã được upload 
     """
-    register = await file_service.get_upload_by_id(app_name,upload_id=UploadId)
+    register = await file_service.get_upload_by_id(app_name, upload_id=UploadId)
 
     info = await file_storage_service.add_binary(
         app_name=app_name,
         relative_path=register.FullFileName,
-        data= FilePart,
+        data=FilePart,
         file_size_in_bytes=register.SizeInBytes
 
     )
@@ -98,17 +99,24 @@ async def files_upload(app_name: str,
     ret.Data.SizeInHumanReadable = register.SizeInHumanReadable
     ret.Data.NumOfChunksCompleted = info.uploaded_chunk_index
     ret.Data.SizeUploadedInHumanReadable = humanize.filesize.naturalsize(info.size_in_bytes)
-    ret.Data.Percent = (info.size_in_bytes/register.SizeInBytes)*100
+    ret.Data.Percent = (info.size_in_bytes / register.SizeInBytes) * 100
     register.NumOfChunksCompleted = info.uploaded_chunk_index
-
-    if info.uploaded_chunk_index+1 == register.NumOfChunks:
+    message_service.append_binary_content_to_temp(app_name, register.FullFileName, FilePart)
+    if info.uploaded_chunk_index + 1 == register.NumOfChunks:
         """
         Complete yet
         """
-        register.Status=1
+        register.Status = 1
 
-        uploaded_file:msg_dataTypes.UploadedFile = msg_dataTypes.UploadedFile()
-        uploaded_file.relative_file_path=register.FullFileName
+        from must_implement import new_instance
+        uploaded_file = new_instance(msg_dataTypes.UploadedFile,dict(
+            relative_file_path = register.FullFileName,
+            content_location = message_service.get_content_location(app_name,register.FullFileName)
+
+        ))
+
+
+
 
         message_service.send_message_upload_file_to_brokers(uploaded_file)
     await file_service.update_register(app_name, register)

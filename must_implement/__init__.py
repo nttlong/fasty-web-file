@@ -54,12 +54,16 @@ class __property__:
         if check_is_require ==True or settings[-1:][0]==False:
             if settings.__len__()<2:
                 self.error=True
+        if type(self.is_required)!=bool:
+            self.is_required=False
         self.is_required =check_is_require
         self.check_data_types=settings[0]
 
     def check_value(self,value):
-        if value is None and self.is_required:
+        if value is None and self.is_required==True:
             return 1
+        elif value is None:
+            return 0
         if isinstance(self.check_data_types,list):
             if not type(value) in self.check_data_types:
                 return 2
@@ -153,15 +157,35 @@ def MustDeclare():
             if data.get(__FIELD_DATA_KEY___) is None:
                 data[__FIELD_DATA_KEY___] = {}
             data[__FIELD_DATA_KEY___][item]=value
+
         setattr(cls_type,"__getattribute__",new_getattr)
         setattr(cls_type,"__setattr__",new_setattr)
+
         return cls_type
     return wrapper
 
 def new_instance(cls_type:T,data:dict)->T:
     if not hasattr(cls_type, __FIELD_NAMES_KEY__) and not hasattr(cls_type, __FIELD_SETTINGS_KEY__):
         cls_type = MustDeclare(cls_type)
-    keys = [x for x in data.keys() if x[0:2]!="__" or x[-2:]!="__"]
+    cls_settings = getattr(cls_type,__FIELD_SETTINGS_KEY__)
+    cks_keys = cls_settings.keys()
+
+    data_keys = [x for x in data.keys() if x[0:2]!="__" or x[-2:]!="__"]
+    keys=list(set(cks_keys).union(data_keys))
+
     ret = cls_type()
-    for key in keys:
-        setattr(ret,key,data[key])
+    for key in data_keys:
+        setattr(ret,key,data.get(key,None))
+    return ret
+
+def get_dict(instance)->dict:
+    cls_type=type(instance)
+
+    if not hasattr(cls_type, __FIELD_NAMES_KEY__) and not hasattr(cls_type, __FIELD_SETTINGS_KEY__):
+        raise Exception("Invalid data type")
+    cls_settings = getattr(cls_type,__FIELD_SETTINGS_KEY__)
+    cks_keys = cls_settings.keys()
+    ret ={}
+    for k in cks_keys:
+        ret[k]=getattr(instance,k)
+    return ret

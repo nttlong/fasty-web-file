@@ -25,8 +25,8 @@ from application_context import AppContext
 
 app = None
 
-class Container(containers.DeclarativeContainer):
 
+class Container(containers.DeclarativeContainer):
     wiring_config = containers.WiringConfiguration(modules=[
         "application",
         "endpoints",
@@ -44,9 +44,9 @@ class Container(containers.DeclarativeContainer):
         Jinja2Templates,
         directory=templates_dir
     )
-    app_context:AppContext = providers.Factory(
+    app_context: AppContext = providers.Factory(
         AppContext,
-        config =config
+        config=config
     )
     db = providers.Factory(
         DbConnection,
@@ -68,44 +68,43 @@ class Container(containers.DeclarativeContainer):
     )
     app_repository = providers.Factory(
         AppRepository,
-        session_factory =db.provided.session,
+        session_factory=db.provided.session,
         app_context=app_context
     )
-    file_repository:FileRepository = providers.Factory(
+    file_repository: FileRepository = providers.Factory(
         FileRepository,
         session_factory=db.provided.session,
         app_context=app_context
     )
-    file_storage_repo: FileStorageBaseRepository =None
+    file_storage_repo: FileStorageBaseRepository = None
     msg_repo: BaseMessage = providers.Factory(
         FakeMessage
     )
-    if config.get('storage').get('type') =='s3':
+    if config.get('storage').get('type') == 's3':
         file_storage_repo: FileStorageBaseRepository = providers.Factory(
             FileStorageS3DbRepository,
             app_context=app_context,
             config=config
         )
-    if config.get('storage').get('type') =='mongodb':
+    if config.get('storage').get('type') == 'mongodb':
         file_storage_repo: FileStorageBaseRepository = providers.Factory(
             FileStorageMongoDbRepository,
             app_context=app_context,
-            config = config
-            )
-    if config.get('storage').get('type') =='file':
+            config=config
+        )
+    if config.get('storage').get('type') == 'file':
         file_storage_repo: FileStorageBaseRepository = providers.Factory(
             FileStorageMongoDbRepository,
             app_context=app_context,
-            config = config
-            )
-
-
-    if config.get('message').get('type')=='kafka':
-        msg_repo = providers.Factory(
-            KafkaMessageRepository,
-            config=config.get('message').get('kafka')
+            config=config
         )
 
+    if config.get('message').get('type') == 'kafka':
+        msg_repo = providers.Factory(
+            KafkaMessageRepository,
+            config=config.get('message').get('kafka'),
+            tmp_data_dir=config.get('message').get('temp-dir')
+        )
 
     user_service = providers.Factory(
         UserService,
@@ -115,22 +114,22 @@ class Container(containers.DeclarativeContainer):
     accounts_service = providers.Factory(
         AccountsService,
         account_repository=account_repository,
-        config =config
+        config=config
 
     )
     apps_services = providers.Factory(
         AppService,
-        app_repository = app_repository,
-        app_context = app_context,
-        config = config
+        app_repository=app_repository,
+        app_context=app_context,
+        config=config
     )
     file_service = providers.Factory(
         FileService,
-        file_repository = file_repository
+        file_repository=file_repository
     )
     file_storage_service = providers.Factory(
         FileStorageService,
-        file_storage_repository = file_storage_repo
+        file_storage_repository=file_storage_repo
     )
     message_service = providers.Factory(
         MessageServices,
