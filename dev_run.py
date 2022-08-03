@@ -1,6 +1,6 @@
 # from webapp.application import app
 import uvicorn
-import application
+
 import application
 if __name__ == "__main__":
     uvicorn.run(

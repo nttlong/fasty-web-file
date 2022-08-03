@@ -4,6 +4,7 @@ import pathlib
 
 from dependency_injector import containers, providers
 #
+from repositories.kafka_consumers.message_file_thumb import ConsumerFileImageProcessThumb
 from services.logger_services import LoggerService
 from repositories.kafka_consumers.files_uploaded import ConsumerFileUploaded
 from repositories.base_message import BaseMessage, FakeMessage
@@ -33,7 +34,7 @@ class FileProcessingContainer(containers.DeclarativeContainer):
 
     logger_service: LoggerService =providers.Factory(
         LoggerService,
-        working_dir = str(pathlib.Path(__file__).parent)
+        working_dir = str(pathlib.Path(__file__).parent.parent)
 
     )
     file_storage_repo: FileStorageBaseRepository = None
@@ -64,13 +65,14 @@ class FileProcessingContainer(containers.DeclarativeContainer):
         config=config,
         logger=logger_service
     )
+    consumer_file_image_process_thumb:ConsumerFileImageProcessThumb = providers.Factory(
+        ConsumerFileImageProcessThumb,
+        config =config,
+        logger=logger_service
 
-    # if config.get('message').get('type') == 'kafka':
-    #     msg_repo = providers.Factory(
-    #         KafkaMessageRepository,
-    #         config=config.get('message').get('kafka'),
-    #         tmp_data_dir=config.get('message').get('temp-dir')
-    #     )
+    )
+
+
 
 
 

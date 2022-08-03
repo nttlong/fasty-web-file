@@ -1,3 +1,8 @@
 MSG_GROUP_FILE_UPLOADED = "message.file.upload"
 MSG_GROUP_FILE_IMAGE_CREATE_THUMBS = "message.file.upload.image.thumb"
 MSG_GROUP_FILE_IMAGE_OCR = "message.file.upload.image.ocr"
+MSG_GROUP_FILE_PDF_CREATE_THUMBS = "message.file.upload.pdf.thumb"
+MSG_GROUP_FILE_PDF_CREATE_OCR = "message.file.upload.pdf.ocr"
+MSG_GROUP_FILE_OFFICE_CREATE_THUMBS = "message.file.upload.office.thumb"
+MSG_GROUP_FILE_OFFICE_CREATE_SEARCH_INDEX = "message.file.upload.office.search.index"
+MSG_GROUP_FILE_VIDEO_CREATE_THUMBS = "message.file.upload.video.thumb"

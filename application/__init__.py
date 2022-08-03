@@ -12,6 +12,7 @@ from utils import OAuth2AndGetUserInfo
 from utils import get_token_url
 from .install_mime_types import install_mime_types
 from .middle_wares.mime_types_javascript_module import add_process_javascript_module
+import app_logs
 install_mime_types()
 bind_ip=None
 bind_port= None
@@ -51,5 +52,10 @@ def create_app() -> FastAPI:
 
     return app
 
+app=None
+try:
+    app = create_app()
+except Exception as e:
+    app_logs.debug(e)
 
-app = create_app()
+

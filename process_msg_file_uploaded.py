@@ -14,6 +14,6 @@ def run(consumer_file_uploaded: ConsumerFileUploaded = Provide[FileProcessingCon
 
 
 
-fx= register_processing(run)
-fx()
+register_processing(run)()
+
 

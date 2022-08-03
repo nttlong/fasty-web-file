@@ -94,3 +94,5 @@ message:
   kafka:
     brokers:
       - 0.0.0.0:9092
+content-processing:
+  temp-dir: /home/python/code/fasty-web-file/content-processing

@@ -38,9 +38,7 @@ class Container(containers.DeclarativeContainer):
     config = providers.Configuration(yaml_files=["config.yml"])
 
     config.load()
-    logger_service: LoggerService = providers.Factory(
-        working_dir=str(pathlib.Path(__file__).parent)
-    )
+
     templates_dir = config.get('front-end').get('server-templates')
     if not os.path.isdir(templates_dir):
         raise Exception(f"{templates_dir} was not found")
