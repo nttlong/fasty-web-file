@@ -1,7 +1,7 @@
 import mimetypes
 
 from dependency_injector.wiring import inject, Provide
-from fastapi import Depends
+from fastapi import Depends,Response
 
 import utils.htt_streaming
 from services.files import FileService
@@ -59,7 +59,10 @@ async def get_content(
                 )
 
         file_stm = await file_storage_service.get_file_stream(app_name, directory)
-
+    if file_stm is None:
+        return Response(
+            status_code=404
+        )
     content_type,_= mimetypes.guess_type(directory)
     res = await utils.htt_streaming.streaming(
         file_store_repository=file_storage_service.file_storage_repository,

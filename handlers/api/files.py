@@ -71,8 +71,9 @@ async def get_list(
         x["UrlOfServerPath"] = url + point_to_file
         x["AppName"] = app_name
         x["RelUrlOfServerPath"] = point_to_file
-        if x.get("HasThumb",False):
-            x["ThumbUrl"] = url + f"/{app_name}/file/{x['UploadId']}/thumb/{x[docs.Files.FileName.__name__]}.png"
+
+        if x.get("HasThumb",True):
+            x["ThumbUrl"] = url + f"/{app_name}/file/{x['UploadId']}/thumb/{x[docs.Files.FileNameOnly.__name__]}.webp"
         if x.get("Media") and x["Media"].get("Duration"):
             x["DurationHumanReadable"] = strftime("%H:%M:%S", gmtime(x["Media"]["Duration"]))
         if x.get(docs.Files.OCRFileId.__name__):

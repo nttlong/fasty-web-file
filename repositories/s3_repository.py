@@ -98,16 +98,6 @@ class FileStorageS3DbRepository(FileStorageBaseRepository):
         stm = open_s3_stream(self.access_key_id,self.secret_access_key,bucket_name,rel_path_to_file)
         return stm
 
-    # def uploadFileS3(self,filename):
-    #     config = TransferConfig(multipart_threshold=1024 * 25, max_concurrency=10,
-    #                             multipart_chunksize=1024 * 25, use_threads=True)
-    #     file = FILE_PATH + filename
-    #     key = KEY_PATH + filename
-    #     s3_client.upload_file(file, S3_BUCKET, key,
-    #                           ExtraArgs={'ACL': 'public-read', 'ContentType': 'video/mp4'},
-    #                           Config=config,
-    #                           Callback=ProgressPercentage(file)
-    #                           )
 
     async def add_binary(self, app_name: str, relative_path: str, data: bytes,file_size_in_bytes:int):
         """
@@ -171,3 +161,6 @@ class FileStorageS3DbRepository(FileStorageBaseRepository):
         #     # data= file_obj.read(read_size)
         #     yield data
         # await self.close(file_stream)
+
+    async def is_exists(self, app_name, rel_path_to_file) ->bool:
+        raise NotImplemented

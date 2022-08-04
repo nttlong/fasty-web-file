@@ -1,7 +1,7 @@
-from typing import TypeVar, Generic,Type
-from dependency_injector.wiring import Provide,inject
-from dependency_injector import containers, providers
-from webapp.database import DbConnection
+from typing import TypeVar
+from dependency_injector.wiring import inject
+from dependency_injector import providers
+from database_connector.database import DbConnection
 T = TypeVar('T')
 
 def get_repository(cls: T,db_name) -> T:   # Generic function

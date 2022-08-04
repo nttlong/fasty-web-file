@@ -1,6 +1,6 @@
 import syncer
 
-from webapp.database import DbConnection
+from database_connector.database import DbConnection
 from dependency_injector import containers, providers
 from services.users import UserService
 from dependency_injector.wiring import Provide,inject

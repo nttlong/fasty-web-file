@@ -18,13 +18,18 @@ class ConsumerFileUploaded(BaseConsumer):
             broker_group_const.MSG_GROUP_FILE_UPLOADED,logger)
         self.producer = KafkaProducer(bootstrap_servers=self.brokers)
 
-    def run(self):
+    async def run(self):
         try:
-            time.sleep(1)
+
             for msg in self.consumer:
 
                 msg_info = self.convert_msg_to(msg, FileProcessMessage)
                 mime_type, _ = mimetypes.guess_type(msg_info.content_location)
+                print(f"Receive new topic {msg_info.message_type}\n"
+                      f"App:{msg_info.app_name}\n"
+                      f"Resource location:{msg_info.content_location}\n"
+                      f"Media id:{msg_info.upload_id}")
+
                 if 'image/' in mime_type:
                     self.producer.send(
                         broker_group_const.MSG_GROUP_FILE_IMAGE_CREATE_THUMBS,

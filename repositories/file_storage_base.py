@@ -35,3 +35,6 @@ class FileStorageBaseRepository:
 
    async def create_buffer_bytes(self, file_stream, start: int, end: int, chunk_size: int = 1024):
        raise NotImplemented
+
+   async def is_exists(self, app_name, rel_path_to_file)->bool:
+       raise NotImplemented

@@ -3,6 +3,8 @@ import time
 import uuid
 from typing import TypeVar
 
+import syncer
+
 from services.logger_services import LoggerService
 
 T=TypeVar("_T")
@@ -54,12 +56,18 @@ class BaseConsumer:
     def convert_object_to_binary(self,obj)->bytes:
         if obj is None:
             return b""
+        if obj.__dict__.get("__field_data__"):
+            return self.convert_dict_to_binary(obj.__dict__.get("__field_data__",{}))
         keys = [x for x in obj.__dict__.keys() if x[0:2]!="__" or x[-2:]!="__"]
+
         data ={}
         for k in keys:
             data[k] = obj.__dict__.get(k,None)
         return self.convert_dict_to_binary(data)
     def start(self):
         while True:
-            self.run()
+            try:
+                syncer.sync(self.run())
+            except Exception as e:
+                self.logger.error(e)
             time.sleep(0.3)

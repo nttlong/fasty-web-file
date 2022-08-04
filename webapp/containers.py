@@ -1,15 +1,13 @@
 """Containers module."""
 import os.path
-import pathlib
 
 from dependency_injector import containers, providers
 
 from repositories.base_message import BaseMessage, FakeMessage
 from repositories.kafka_message import KafkaMessageRepository
 from repositories.s3_repository import FileStorageS3DbRepository
-from services.logger_services import LoggerService
 from services.message import MessageServices
-from .database import DbConnection
+from database_connector.database import DbConnection
 from repositories.apps import AppRepository
 from repositories.file_storage_base import FileStorageBaseRepository
 from repositories.file_storage_mongo import FileStorageMongoDbRepository

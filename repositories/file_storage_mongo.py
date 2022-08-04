@@ -68,6 +68,9 @@ class FileStorageMongoDbRepository(FileStorageBaseRepository):
                         authMechanism=self.authMechanism
 
                     )
+                    db = __mongo_connection__.get_database(self.authSource).delegate
+                    version_text = db.command({'buildInfo': 1})['version']
+                    print(f"connect to mongodb {version_text} ok")
                 else:
                     __mongo_connection__ = motor.motor_asyncio.AsyncIOMotorClient(
 
@@ -80,11 +83,10 @@ class FileStorageMongoDbRepository(FileStorageBaseRepository):
                         authMechanism=self.authMechanism
 
                     )
-                # db = __mongo_connection__.get_database(self.authSource)
-                # version_text =awai db.command({'buildInfo': 1})['version']
-                # version_numbers = [int(x) for x in version_text.split('.')]
-                # if version_numbers[0] > 4 and version_numbers[0]>7 and version_numbers[1]>=6:
-                #     raise Exception(f"Can not support with mongdb {version_text}")
+                db = __mongo_connection__.get_database(self.authSource).delegate
+
+                version_text = db.command({'buildInfo': 1})['version']
+                print(f"connect to mongodb {version_text} ok")
             finally:
                 __lock__.release()
 
@@ -127,6 +129,8 @@ class FileStorageMongoDbRepository(FileStorageBaseRepository):
             return None
         db = self.connection.get_database(db_name)
         fx =await db.get_collection("fs.files").find_one(dict(relative_path=rel_path_to_file.lower()))
+        if fx is None:
+            return None
         fs = motor.motor_asyncio.AsyncIOMotorGridFSBucket(db,chunk_size_bytes= 1024)
         # fs = GridFS(db)
         ret = await fs.open_download_stream(fx['_id'])
@@ -206,17 +210,10 @@ class FileStorageMongoDbRepository(FileStorageBaseRepository):
                     "upload_len":upload_len
                 }}
             )
-            # await db_async.update_one_async(
-            #     db,
-            #     mongod_db_file_docs,
-            #     mongod_db_file_docs._id == file._id,
-            #     mongod_db_file_docs.length == file.length
-            # )
+
         chunk_index, m = divmod(upload_len, file.chunkSize)
         if m > 0:
             chunk_index += 1
-        import ReCompact.db_context
-
         fs_chunks = db.get_collection("fs.chunks")
         await fs_chunks.insert_one({
             "_id": bson.objectid.ObjectId(),
@@ -236,3 +233,17 @@ class FileStorageMongoDbRepository(FileStorageBaseRepository):
             # data= file_obj.read(read_size)
             yield data
         await self.close(file_stream)
+
+    async def is_exists(self, app_name, rel_path_to_file) ->bool:
+        db_name = self.app_context.get_db_name(app_name)
+        if db_name is None:
+            return None
+        db = self.connection.get_database(db_name)
+        file_dict = await db_async.find_one_async(
+            db,
+            mongod_db_file_docs,
+            mongod_db_file_docs.relative_path == rel_path_to_file.lower()
+
+        )
+        return file_dict is not None
+

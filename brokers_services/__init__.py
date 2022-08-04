@@ -11,7 +11,7 @@ from dependency_injector.wiring import inject
 working_dir =str(pathlib.Path(__file__).parent.parent)
 
 @inject
-def register_processing(run,other_container=None)->FileProcessingContainer:
+def register_processing(run,depend_containers=None)->FileProcessingContainer:
     container = FileProcessingContainer()
     container.init_resources()
     mdl_inject = [
@@ -25,8 +25,8 @@ def register_processing(run,other_container=None)->FileProcessingContainer:
     for k,v in __injections__.items():
         wire_modules+=[v.cls.__module__]
 
-    if other_container!=None:
-        for c in other_container:
+    if depend_containers!=None:
+        for c in depend_containers:
             if issubclass(c,DeclarativeContainer):
                 fc=c()
                 fc.init_resources()

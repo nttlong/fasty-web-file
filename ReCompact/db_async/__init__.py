@@ -166,6 +166,8 @@ def __set_connection__(db):
     if __connection__ is None:
         __lock__.acquire()
         try:
+            if isinstance(db,motor.motor_asyncio.AsyncIOMotorDatabase):
+                db=db.delegate
             if isinstance(db, pymongo.mongo_client.database.Database):
                 username = db.client.options._options["username"]
                 password = db.client.options._options["password"]

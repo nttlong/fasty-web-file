@@ -2,7 +2,7 @@
 import os.path
 import pathlib
 
-from fastapi import FastAPI,Request
+from fastapi import FastAPI,Request, Response
 
 from webapp.containers import Container
 import endpoints
@@ -10,20 +10,30 @@ from dependency_injector.wiring import inject
 from fastapi.staticfiles import StaticFiles
 from utils import OAuth2AndGetUserInfo
 from utils import get_token_url
-from .install_mime_types import install_mime_types
-from .middle_wares.mime_types_javascript_module import add_process_javascript_module
+
+# from .middle_wares.mime_types_javascript_module import add_process_javascript_module
 import app_logs
-install_mime_types()
+
 bind_ip=None
 bind_port= None
 working_dir =str(pathlib.Path(__file__).parent.parent)
+async def catch_exceptions_middleware(request: Request, call_next):
+    try:
+        return await call_next(request)
+    except Exception as e:
+        # you probably want some kind of logging here
+        return Response("loi", status_code=500)
+
+
 @inject
 def create_app() -> FastAPI:
+    from .install_mime_types import install_mime_types
+    install_mime_types()
     container = Container()
     container.init_resources()
     print('webapp.application.components.JWT')
     container.wire(modules=[
-        'webapp.application',
+
         __name__,"__main__"
     ])
     config = container.config
@@ -35,8 +45,8 @@ def create_app() -> FastAPI:
     db = container.db()
 
     app = FastAPI()
-
-    app.middleware(config.get('host').get('schema'))(add_process_javascript_module)
+    app.middleware('http')(catch_exceptions_middleware)
+    # app.middleware(config.get('host').get('schema'))(add_process_javascript_module)
 
     app.container = container
     static_dir = config.get('front-end').get('static')
