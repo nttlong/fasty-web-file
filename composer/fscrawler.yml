@@ -1,0 +1,17 @@
+version: '3'
+services:
+  # FSCrawler
+  fscrawler:
+    image: toto1310/fscrawler
+    container_name: fscrawler
+    volumes:
+      - ${FS_CRAWLER_PWD}/config:/root/.fscrawler
+      - ${FS_CRAWLER_PWD}/data:/tmp/es
+    environment:
+      - FS_URL=/tmp/es
+      - ELASTICSEARCH_URL=http://{ES_IP_HOST}:9200
+      - ELASTICSEARCH_INDEX=${FS_CRAWLER_ELASTIC_SEARCH_INDEX}
+    command: |
+      /bin/bash -c "
+        envsubst < /root/.fscrawler/_template.yaml > /root/.fscrawler/_settings.yaml \
+        && fscrawler job_name"

@@ -9,6 +9,7 @@ from kafka.errors import KafkaError
 # Asynchronous by default
 from pip._internal import self_outdated_check
 
+import app_logs
 from must_implement import MustImplement
 from .base_message import BaseMessage
 @MustImplement()
@@ -20,6 +21,16 @@ class KafkaMessageRepository(BaseMessage):
 
     def send_dict_data(self,group_id:str,data:dict):
         future = self.producer.send(group_id, str.encode(json.dumps(data)))
+        try:
+            record_metadata = future.get(timeout=10)
+            app_logs.debug(f"send message to {self.config} is ok")
+            print(f"send message to {self.config} is ok")
+        except KafkaError as ex:
+            # Decide what to do if produce request failed...
+            app_logs.debug(ex)
+            print(f"send message to {self.config} is error")
+            print(f"send message to {ex} is error")
+
     def append_binary_content_to_temp(self, app_name, relative_path, b_data):
         full_file_path = os.path.join(self.tmp_dir, app_name,relative_path).replace('/',os.sep)
         full_dir_path =str(pathlib.Path(full_file_path).parent)

@@ -1,6 +1,10 @@
 # from webapp.application import app
 import uvicorn
-
+import developer
+developer.developer_mode=True
+"""
+Please do not change or re order above code. This is a cheat for developer mode
+"""
 import application
 if __name__ == "__main__":
     uvicorn.run(

@@ -1,8 +1,10 @@
 """Containers module."""
 import os.path
+import sys
 
 from dependency_injector import containers, providers
 
+import app_logs
 from repositories.base_message import BaseMessage, FakeMessage
 from repositories.kafka_message import KafkaMessageRepository
 from repositories.s3_repository import FileStorageS3DbRepository
@@ -20,12 +22,14 @@ from services.files import FileService
 from services.users import UserService
 from services.accounts import AccountsService
 from fastapi.templating import Jinja2Templates
-
+import start_config
 from application_context import AppContext
 
 
 
 class Container(containers.DeclarativeContainer):
+    config_path = start_config.get_config_path()
+    print(f"Start with {config_path}")
     wiring_config = containers.WiringConfiguration(modules=[
         "application",
         "endpoints",
@@ -33,8 +37,7 @@ class Container(containers.DeclarativeContainer):
         "__main__"
     ])
 
-    config = providers.Configuration(yaml_files=["config.yml"])
-
+    config = providers.Configuration(yaml_files=[config_path])
     config.load()
 
     templates_dir = config.get('front-end').get('server-templates')

@@ -2,23 +2,80 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e8b92c7-4fdb-4720-bcc8-0afabcfcc65d" name="Changes" comment="ok">
-      <change afterPath="$PROJECT_DIR$/composer/web/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/web/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test_apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web_docker" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/ceph-mon/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/ceph-mon/ceph.conf.template" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/ceph-mon/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/ceph-mon/startup-bootstrap.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/ceph-mon/startup-join.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/ceph-mon/startup.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/ceph-swarm/compat.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/ceph-swarm/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/ceph/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/ceph/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/fasty-web-file.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fasty-web-file.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/application/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_logs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_logs/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_logs/logs/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app_logs/logs/log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps_containers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps_containers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps_containers/media_content.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps_containers/media_content.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps_containers/repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps_containers/repositories.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps_containers/tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps_containers/tracking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps_containers/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps_containers/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/broker_consumer_when_file_image_create_thumbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/broker_consumer_when_file_image_create_thumbs.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/broker_consumer_when_file_uploaded.py" beforeDir="false" afterPath="$PROJECT_DIR$/broker_consumer_when_file_uploaded.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/broker_group_const/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/broker_group_const/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokers_services/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/brokers_services/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokers_services/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/brokers_services/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brokers_services/containers.py" beforeDir="false" afterPath="$PROJECT_DIR$/brokers_services/containers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/.env" beforeDir="false" afterPath="$PROJECT_DIR$/composer/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/cmd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/composer/cmd.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/es.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/es.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/fscrawler.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/fscrawler.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/kafka.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/kafka.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/libre-office.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/libre-office.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/mongodb.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/mongodb.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/pg.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/pg.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/test/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/composer/test/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/test/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/test/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/web-dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/composer/web-dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/web.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/web.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_connector/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_connector/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dev_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/dev_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_connector/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_connector/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/developer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/developer/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/developer/boostrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/developer/boostrap.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/developer/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/developer/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exten_services/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/exten_services/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exten_services/tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/exten_services/tracking.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/api/file_upload_chunk.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/api/file_upload_chunk.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/must_implement/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/must_implement/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/base_message.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/base_message.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/kafka_message.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_message.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/base_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/base_files.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/images.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/images.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/logger_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/logger_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/message.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/message.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/message_data_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/message_data_types.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/start_config/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/start_config/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/kfaka.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/kfaka.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web_docker" beforeDir="false" afterPath="$PROJECT_DIR$/web_docker" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DockDockBuild.Settings">
+    <option name="codePath" value="$PROJECT_DIR$" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -30,18 +87,21 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="dcs-admin &lt;zugeliang2000@gmail.com&gt;" />
         <option value="nttlong &lt;zugeliang2000@gmail.com&gt;" />
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$USER_HOME$/lv_files_service/fasty-web-file/venv/lib/python3.8/site-packages/pymongo/topology.py" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/composer/mongodb/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/brokers_services/containers.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/.env" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/database_connector/database.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/endpoints/__init__.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/handlers/api/apps.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/base.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/repositories/s3_repository.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -53,14 +113,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/python/code/fasty-web-file/composer/web",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/python/code/fasty-web-file/composer/consumer_file_uploaded&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="Push.Settings">
     <force-push-targets>
       <force-push-target remote-path="origin" branch="main" />
@@ -71,17 +131,61 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/composer/consumer_file_uploaded" />
+      <recent name="$PROJECT_DIR$/developer" />
       <recent name="$PROJECT_DIR$/composer/web" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\code\python\fasty-web-file\composer" />
+      <recent name="C:\code\python\fasty-web-file" />
       <recent name="$PROJECT_DIR$/apps_containers" />
       <recent name="$PROJECT_DIR$/database_connector" />
       <recent name="$PROJECT_DIR$/utils" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/services" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in test_apps.py">
+  <component name="RunManager" selected="Python.broker_consumer_when_file_image_create_thumbs">
+    <configuration name="broker_consumer_when_file_image_create_thumbs" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fasty-web-file" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/broker_consumer_when_file_image_create_thumbs.py" />
+      <option name="PARAMETERS" value="dev" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="broker_consumer_when_file_uploaded" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="fasty-web-file" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/broker_consumer_when_file_uploaded.py" />
+      <option name="PARAMETERS" value="dev" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="dev_main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="fasty-web-file" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -124,48 +228,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="process_msg_file_image_thumb" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="fasty-web-file" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/process_msg_file_image_thumb.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="process_msg_file_uploaded" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="fasty-web-file" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/process_msg_file_uploaded.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="pytest in test_apps.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
       <module name="fasty-web-file" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -184,10 +246,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python tests.pytest in test_apps.py" />
+        <item itemvalue="Python.broker_consumer_when_file_image_create_thumbs" />
+        <item itemvalue="Python.broker_consumer_when_file_uploaded" />
         <item itemvalue="Python.dev_run" />
-        <item itemvalue="Python.process_msg_file_uploaded" />
-        <item itemvalue="Python.process_msg_file_image_thumb" />
+        <item itemvalue="Python tests.pytest in test_apps.py" />
         <item itemvalue="Python.dev_main" />
       </list>
     </recent_temporary>
@@ -355,7 +417,49 @@
       <option name="project" value="LOCAL" />
       <updated>1659598210202</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="ok">
+      <created>1659669348517</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1659669348517</updated>
+    </task>
+    <task id="LOCAL-00024" summary="ok">
+      <created>1659672445934</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1659672445934</updated>
+    </task>
+    <task id="LOCAL-00025" summary="ok">
+      <created>1659767104999</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1659767104999</updated>
+    </task>
+    <task id="LOCAL-00026" summary="ok">
+      <created>1659767669158</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1659767669158</updated>
+    </task>
+    <task id="LOCAL-00027" summary="ok">
+      <created>1659768773494</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1659768773494</updated>
+    </task>
+    <task id="LOCAL-00028" summary="ok">
+      <created>1659935083115</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1659935083115</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -417,19 +521,29 @@
           <option name="timeStamp" value="77" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/repositories/kafka_consumers/base.py</url>
-          <line>71</line>
-          <option name="timeStamp" value="221" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/ReCompact/db_async/__init__.py</url>
-          <line>182</line>
-          <option name="timeStamp" value="228" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/test_apps.py</url>
           <line>17</line>
           <option name="timeStamp" value="271" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py</url>
+          <line>14</line>
+          <option name="timeStamp" value="334" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/services/base_files.py</url>
+          <line>9</line>
+          <option name="timeStamp" value="345" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/services/base_files.py</url>
+          <line>5</line>
+          <option name="timeStamp" value="346" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb.py</url>
+          <line>34</line>
+          <option name="timeStamp" value="348" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

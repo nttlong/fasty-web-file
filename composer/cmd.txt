@@ -1,0 +1,13 @@
+docker stop $(docker ps -aq)
+docker rm $(docker ps -aq)
+docker rmi $(docker images -q)
+docker volume rm $(docker volume ls)
+
+
+docker compose -f kafka.yml up -d
+docker compose -f mongodb.yml up -d
+docker compose -f pg.yml up -d
+docker compose -f es.yml up -d
+docker compose -f fscrawler.yml up -d
+docker compose -f web.yml build
+docker compose -f web.yml up -d

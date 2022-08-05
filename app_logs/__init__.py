@@ -19,4 +19,11 @@ logger.addHandler(fileh)
 
 def debug(e):
     global logger
+    global __dev_mode__
+    if __dev_mode__:
+        print(str(e))
     logger.debug(e)
+
+__dev_mode__=False
+def set_developer_mode(mode:bool):
+    __dev_mode__ =mode

@@ -16,7 +16,7 @@ from repositories.file_storage_mongo import FileStorageMongoDbRepository
 # from repositories.files import FileRepository
 from repositories.apps import AppContext
 from database_connector.database import DbConnection
-
+import start_config
 class FileProcessingContainer(containers.DeclarativeContainer):
     wiring_config = containers.WiringConfiguration(modules=[
 
@@ -24,7 +24,7 @@ class FileProcessingContainer(containers.DeclarativeContainer):
 
     ])
 
-    config = providers.Configuration(yaml_files=["config.yml"])
+    config = providers.Configuration(yaml_files=[start_config.get_config_path()])
 
     config.load()
     app_context: AppContext = providers.Factory(

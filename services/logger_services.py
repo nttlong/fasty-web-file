@@ -14,9 +14,8 @@ class LoggerService:
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         fileh.setFormatter(formatter)
 
-        self.log = logging.getLogger()  # root logger
-        for hdlr in self.log.handlers[:]:  # remove all old handlers
-            self.log.removeHandler(hdlr)
+        self.log = logging.Logger(__name__)  # root logger
+
         self.log.addHandler(fileh)  # set
 
     def error(self, ex):

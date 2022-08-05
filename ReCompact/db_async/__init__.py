@@ -17,6 +17,7 @@ import pymongo.mongo_client
 # from motor import MotorGridFSBucket
 from motor.motor_asyncio import AsyncIOMotorGridFSBucket
 from bson import ObjectId
+import app_logs
 db_version:str =None
 db_version_info=None
 
@@ -588,7 +589,10 @@ def sync(*args, **kwargs):
     ret = loop.run_until_complete(coroutine)
     loop.close()
     return ret
-
+__lock_when_create_connection__ = threading.Lock()
+"""
+For mongodb just only one time for connection, and connection will be use across application
+"""
 def __create_connect__(config):
     global default_db_name
     global db_config
@@ -610,18 +614,33 @@ def __create_connect__(config):
         connection_string = f'mongodb://{db_config["username"]}:{db_config["password"]}@{str_host}/?authSource={db_config["authSource"]}'
         __connection__ = motor.motor_asyncio.AsyncIOMotorClient(connection_string)
 def get_connection(*args,**kwargs) -> motor.motor_asyncio.AsyncIOMotorClient:
-
-
-
-
     global __connection__
-    if args and isinstance(args, tuple) and args.__len__()> 0 and isinstance(args[0],dict):
-        __create_connect__(args[0])
-        global db_version
-        global db_version_info
-        db_version = get_db_verion()
-        db_version_info =db_version.split('.')
-        return  __connection__
+    global __lock_when_create_connection__
+    if __connection__ is None:
+        __lock_when_create_connection__.acquire()
+        try:
+            if args and isinstance(args, tuple) and args.__len__() > 0 and isinstance(args[0], dict):
+                __create_connect__(args[0])
+                global db_version
+                global db_version_info
+                try:
+                    db_version = get_db_verion()
+                    db_version_info = db_version.split('.')
+                    print(f"Connect to mongodb is ok, version {db_version}")
+                    app_logs.debug(f"Connect to mongodb is ok, version {db_version}")
+                except Exception as ex:
+                    print(f"Connect to mongodb was fail")
+                    app_logs.debug(f"Connect to mongodb was fail")
+                    app_logs.debug(ex)
+                return __connection__
+        except Exception as ex_cnn:
+            print(f"Can not create connect to mongodb")
+            app_logs.debug(f"Can not create connect to mongodb")
+            app_logs.debug(ex_cnn)
+        finally:
+            __lock_when_create_connection__.release()
+
+
     if __connection__ is None:
         raise Exception(f"Thy shoul call Recompact.db_async.load_config")
 

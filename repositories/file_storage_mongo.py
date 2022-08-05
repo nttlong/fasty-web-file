@@ -166,7 +166,7 @@ class FileStorageMongoDbRepository(FileStorageBaseRepository):
         file_name = pathlib.Path(relative_path).name.lower()
         content_type,_ =mimetypes.guess_type(relative_path)
         if file_dict is None:
-
+            upload_len = data.__len__()
             gfs= GridFS(db.delegate)
             fs = gfs.new_file()
             fs.name = file_name
@@ -195,7 +195,7 @@ class FileStorageMongoDbRepository(FileStorageBaseRepository):
                     filename=file_name,
                     length=data.__len__(),
                     relative_path=relative_path.lower(),
-                    upload_len=0
+                    upload_len=upload_len
                 )
             )
         else:
@@ -215,6 +215,7 @@ class FileStorageMongoDbRepository(FileStorageBaseRepository):
         if m > 0:
             chunk_index += 1
         fs_chunks = db.get_collection("fs.chunks")
+        chunk_index-=1
         await fs_chunks.insert_one({
             "_id": bson.objectid.ObjectId(),
             "files_id": file._id,

@@ -1,0 +1,48 @@
+version: '3.5'
+
+services:
+
+  #etcd is used only to exchange client.admin key between monitor instances
+  etcd0:
+    image: quay.io/coreos/etcd:v3.2.25
+    volumes:
+      - etcd0:/etcd_data
+    environment:
+      - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
+      - ETCD_ADVERTISE_CLIENT_URLS=http://etcd0:2379
+
+  mon1:
+    image: flaviostutz/ceph-monitor
+    ports:
+      - 6789:6789
+    environment:
+      - LOG_LEVEL=0
+      - CREATE_CLUSTER=true
+      - PEER_MONITOR_HOSTS=mon2
+      - ETCD_URL=http://etcd0:2379
+    volumes:
+      - /home/python/code/fasty-web-file/docker-tmp/ceph/mon/mon1:/var/lib/ceph/mon
+
+  mon2:
+    image: flaviostutz/ceph-monitor
+    environment:
+      - LOG_LEVEL=0
+      - PEER_MONITOR_HOSTS=mon1
+      - ETCD_URL=http://etcd0:2379
+    volumes:
+      - /home/python/code/fasty-web-file/docker-tmp/ceph/mon/mon2:/var/lib/ceph/mon
+
+  mon3:
+    image: flaviostutz/ceph-monitor
+    environment:
+      - LOG_LEVEL=0
+      - PEER_MONITOR_HOSTS=mon1
+      - ETCD_URL=http://etcd0:2379
+    volumes:
+      - /home/python/code/fasty-web-file/docker-tmp/ceph/mon/mon3:/var/lib/ceph/mon
+
+volumes:
+  etcd0:
+  mon1:
+  mon2:
+  mon3:

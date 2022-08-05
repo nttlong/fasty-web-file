@@ -1,0 +1,9 @@
+version: '3.7'
+
+services:
+  long-test:
+    build:
+      context: ./../..
+      dockerfile: ./composer/test/Dockerfile
+    command:
+      - ls ${MESSAGE}

@@ -1,0 +1,21 @@
+services:
+  db:
+    extends:
+      file: composer/mongodb/docker-compose.yml
+      service: mongodb_container
+  brokers-zookeeper:
+    extends:
+      file: composer/kafka/docker-compose.yml
+      service: zookeeper
+  brokers-kafka:
+    extends:
+      file: composer/kafka/docker-compose.yml
+      service: kafka
+  brokers-kafka-init:
+    extends:
+      file: composer/kafka/docker-compose.yml
+      service: init-kafka
+depends_on:
+  - kafka
+volumes:
+    mongodb_data_container:

@@ -1,11 +1,3 @@
-db__:
-  host: 192.168.18.36
-  port: 27018
-  username: 'admin-doc'
-  password: '123456'
-  authSource: 'lv-docs'
-#  replicaSet: ''
-  authMechanism: SCRAM-SHA-1
 db:
   host: 172.16.13.72
   port: 27017
@@ -14,22 +6,11 @@ db:
   authSource: 'admin'
   #  replicaSet: ''
   authMechanism: SCRAM-SHA-1
-db_:
-  host: localhost
-  port: 27017
-  username: 'ok'
-  password: 'yes'
-  authSource: 'long-test'
-#  replicaSet: ''
-  authMechanism: SCRAM-SHA-1
 front-end:
   static: ./resource/static
   server-templates: ./resource/server/templates
   api-url: http://172.16.13.72:8008/api
-front-end-:
-  static: ./resource/static
-  server-templates: ./resource/server/templates
-  api-url: 'http://192.168.1.2:8012/api'
+
 single-page-application:
   main-page: index.html
 jwt:
@@ -57,11 +38,7 @@ host:
   port: 8000
   schema: http
   domain:  0.0.0.0.0
-host_:
-  bind: 0.0.0.0
-  port: 8012
-  schema: http
-  domain: 0.0.0.0
+
 
 storage:
   type: mongodb
@@ -71,14 +48,7 @@ storage:
     tmp-directory: //192.168.18.36/Share/s3-tmp
   file:
     location: //192.168.18.36/Share/s3-tmp
-  mongodb_:
-    host: 192.168.18.36
-    port: 27018
-    username: 'admin-doc'
-    password: '123456'
-    authSource: 'lv-docs'
-    #  replicaSet: ''
-    authMechanism: SCRAM-SHA-1
+
   mongodb:
     host: 172.16.13.72
     port: 27017
@@ -90,9 +60,9 @@ storage:
 
 message:
   type: kafka
-  temp-dir: /home/python/code/fasty-web-file/tmp
+  temp-dir: /app/tmp
   kafka:
     brokers:
-      - 0.0.0.0:9092
+      - 172.16.13.72:9092
 content-processing:
-  temp-dir: /home/python/code/fasty-web-file/content-processing
+  temp-dir: /app/content-processing

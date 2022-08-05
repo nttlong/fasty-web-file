@@ -16,9 +16,16 @@ class ConsumerFileUploaded(BaseConsumer):
             self,
             config,
             broker_group_const.MSG_GROUP_FILE_UPLOADED,logger)
-        self.producer = KafkaProducer(bootstrap_servers=self.brokers)
+        self.__producer__ =None
 
+    @property
+    def producer(self):
+        if self.__producer__ is None:
+            self.__producer__ = KafkaProducer(bootstrap_servers=self.brokers)
+        return self.__producer__
     async def run(self):
+        if self.consumer is None:
+            return
         try:
 
             for msg in self.consumer:

@@ -4,6 +4,8 @@ from fastapi import File, Form, Depends
 from typing import Union
 import threading
 from dependency_injector.wiring import inject, Provide
+
+import app_logs
 import services.message_data_types as msg_dataTypes
 
 __lock__ = threading.Lock()
@@ -28,49 +30,6 @@ và tham khảo đến thông tin phần trăm upload. Quá trình upload 1 file
 Để tránh việc tham khảo đến Database nhiều lần cần phải có cơ chế Cache thông tin upload.
 Biến này sẽ phụ trách việc cache
 """
-
-
-# from api_models.Models_Kafka_Tracking import Sys_Kafka_Track
-
-# Sys_Kafka_Track_Doc = Sys_Kafka_Track()
-
-
-# def __kafka_producer_delivery_report__(error, msg):
-#     """
-#         Hàm này dùng để tiếp nhận lỗi từ Kafka
-#         :param error:
-#         :param msg:
-#         :return:
-#         """
-#     import asyncio
-#     import json
-#     data = json.loads(msg.value().decode("utf8"))
-#     app_name = data["AppName"]
-#     topic_key = msg.topic()
-#     db_context = get_db_context(app_name)
-#     ret = db_context.insert_one(
-#         Sys_Kafka_Track_Doc,
-#         Sys_Kafka_Track_Doc.Data == data,
-#         Sys_Kafka_Track_Doc.Error == error,
-#         Sys_Kafka_Track_Doc.Topic == topic_key,
-#         Sys_Kafka_Track_Doc.CreatedOn == datetime.datetime.now()
-#     )
-#
-#     if error:
-#         fasty.config.logger.debug("------------------------------------")
-#         fasty.config.logger.debug("Kafka server error")
-#         fasty.config.logger.debug(error)
-#         fasty.config.logger.debug(msg)
-#         fasty.config.logger.debug("------------------------------------")
-#     else:
-#         fasty.config.logger.info("------------------------------------")
-#         fasty.config.logger.info("Kafka server recive new topic")
-#         fasty.config.logger.debug(error)
-#         fasty.config.logger.debug(msg)
-#         fasty.config.logger.debug("------------------------------------")
-
-
-# @fasty.api_post("/{app_name}/files/upload", response_model=UploadFilesChunkInfoResult)
 @inject
 async def files_upload(app_name: str,
                        FilePart: bytes = File(...),
@@ -81,6 +40,9 @@ async def files_upload(app_name: str,
                        file_service: FileService = Depends(Provide[Container.file_service]),
                        message_service: services.message.MessageServices = Depends(Provide[Container.message_service])
                        ):
+    """
+    Api nay dung de upload noi dung file
+    """
     topic_key = "files.services.upload"
     """
     topic báo hiệu 1 file đã được upload 
@@ -118,9 +80,14 @@ async def files_upload(app_name: str,
         ))
 
 
-
-
-        message_service.send_message_upload_file_to_brokers(uploaded_file)
+        print(f"upload with {register._id} send mssage to broker")
+        app_logs.debug(f"upload with {register._id} send mssage to broker")
+        try:
+            message_service.send_message_upload_file_to_brokers(uploaded_file)
+        except Exception as e:
+            print("Loi")
+            print(f"{e}")
+            app_logs.debug(e)
     await file_service.update_register(app_name, register)
 
     return ret

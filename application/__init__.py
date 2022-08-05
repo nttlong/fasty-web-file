@@ -63,9 +63,11 @@ def create_app() -> FastAPI:
     return app
 
 app=None
+
 try:
     app = create_app()
 except Exception as e:
+    print("start app is error")
     app_logs.debug(e)
 
 

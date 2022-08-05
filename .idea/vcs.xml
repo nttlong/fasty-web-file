@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/ansible/ceph-ansible" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/composer/ceph-dev/ceph-dev-docker" vcs="Git" />
   </component>
 </project>

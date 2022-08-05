@@ -10,9 +10,7 @@ class DbConnection:
         self.config=db_config
         self.app_context = app_context
         self.connection= get_connection(db_config)
-        self.db_name= db_config.get('authSource')
-        self.db_version=self.connection.delegate.server_info()["version"]
-        print(f"Connect mongodb version {self.db_version} is ok")
+
 
 
 
