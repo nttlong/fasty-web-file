@@ -2,72 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e8b92c7-4fdb-4720-bcc8-0afabcfcc65d" name="Changes" comment="ok">
-      <change afterPath="$PROJECT_DIR$/composer/ceph-mon/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/ceph-mon/ceph.conf.template" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/ceph-mon/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/ceph-mon/startup-bootstrap.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/ceph-mon/startup-join.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/ceph-mon/startup.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/ceph-swarm/compat.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/ceph-swarm/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/ceph/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/ceph/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/fasty-web-file.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/fasty-web-file.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_logs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_logs/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_logs/logs/log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app_logs/logs/log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps_containers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps_containers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps_containers/media_content.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps_containers/media_content.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps_containers/repositories.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps_containers/repositories.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps_containers/tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps_containers/tracking.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps_containers/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps_containers/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker_consumer_when_file_image_create_thumbs.py" beforeDir="false" afterPath="$PROJECT_DIR$/broker_consumer_when_file_image_create_thumbs.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker_consumer_when_file_uploaded.py" beforeDir="false" afterPath="$PROJECT_DIR$/broker_consumer_when_file_uploaded.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker_group_const/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/broker_group_const/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokers_services/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/brokers_services/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokers_services/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/brokers_services/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokers_services/containers.py" beforeDir="false" afterPath="$PROJECT_DIR$/brokers_services/containers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/.env" beforeDir="false" afterPath="$PROJECT_DIR$/composer/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer/cmd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/composer/cmd.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/es.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/es.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/fscrawler.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/fscrawler.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/kafka.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/kafka.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/libre-office.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/libre-office.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/mongodb.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/mongodb.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/pg.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/pg.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/test/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/composer/test/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/test/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/test/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/web-dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/composer/web-dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/web.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/web.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_connector/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_connector/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/developer/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/developer/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/developer/boostrap.yml" beforeDir="false" afterPath="$PROJECT_DIR$/developer/boostrap.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/developer/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/developer/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exten_services/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/exten_services/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exten_services/tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/exten_services/tracking.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/api/file_upload_chunk.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/api/file_upload_chunk.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/must_implement/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/must_implement/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/base_message.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/base_message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/kafka_message.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/base_files.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/base_files.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/images.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/images.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/logger_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/logger_services.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/message.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/message.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/message_data_types.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/message_data_types.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start_config/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/start_config/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/kfaka.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/kfaka.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web_docker" beforeDir="false" afterPath="$PROJECT_DIR$/web_docker" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -459,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659935083115</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="ok">
+      <created>1660015871365</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1660015871365</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

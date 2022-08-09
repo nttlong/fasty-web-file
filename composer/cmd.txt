@@ -11,3 +11,10 @@ docker compose -f es.yml up -d
 docker compose -f fscrawler.yml up -d
 docker compose -f web.yml build
 docker compose -f web.yml up -d
+
+#----------simple------
+
+docker compose -f kafka.yml up -d
+docker compose -f mongodb.yml up -d
+docker compose -f web.yml build
+docker compose -f web.yml up -d
