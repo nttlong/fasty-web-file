@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  consumer-upload-file:
+    build:
+      context: ./..
+      dockerfile: ./composer/consumer-upload-dockerfile
+    volumes:
+      - ${PATH_LOCAL_DIR_IN_HOST}/web-api/tmp-file-upload/:/app/tmp
+      - ${PATH_LOCAL_DIR_IN_HOST}/consumer/logs/:/app/logs
+    command: >
+      sh -c "
+        
+        python3  /app/broker_consumer_when_file_uploaded.py
+        "
+
+#    command: python3  /app/broker_consumer_when_file_uploaded.py

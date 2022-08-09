@@ -5,6 +5,7 @@ import pathlib
 from dependency_injector import containers, providers
 
 from services.images import ImageFileService
+from services.videos import VideoFileService
 from start_config import get_config_path
 
 class MediaContainer(containers.DeclarativeContainer):
@@ -19,6 +20,9 @@ class MediaContainer(containers.DeclarativeContainer):
         config =config
     )
 
-
+    video_file_service: VideoFileService = providers.Factory(
+        VideoFileService,
+        config=config
+    )
 
 

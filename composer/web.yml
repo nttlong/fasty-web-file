@@ -6,8 +6,9 @@ services:
       context: ./..
       dockerfile: ./composer/web-dockerfile
     volumes:
-      - ${WEB_TMP_FILE_UPLOAD}/:/app/tmp
-      - ${PROCESS_CONTENT}/:/app/content-processing
+      - ${PATH_LOCAL_DIR_IN_HOST}/web-api/tmp-file-upload/:/app/tmp
+      - ${PATH_LOCAL_DIR_IN_HOST}/web-api/logs/:/app/logs
+
 
     command: uvicorn application:app --host 0.0.0.0 --reload --reload
 #    command: uvicorn test_apps:app --host 0.0.0.0 --reload

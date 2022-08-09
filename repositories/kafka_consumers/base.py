@@ -6,7 +6,8 @@ from typing import TypeVar
 
 import syncer
 
-from services.logger_services import LoggerService
+# from services.logger_services import LoggerService
+import app_logs
 
 T = TypeVar("_T")
 from kafka import KafkaConsumer
@@ -30,26 +31,37 @@ class FileProcessMessage:
 
 
 class BaseConsumer:
-    def __init__(self, config: dict, topic_id: str, logger: LoggerService):
-        global __working_dir__
-        self.logger: LoggerService = logger
-        self.config = config
-        self.storage_dir = self.config.get('message').get('temp-dir')
-        if self.storage_dir[0:2]=='./':
-            self.storage_dir=self.storage_dir[2:]
-            self.storage_dir= os.path.join(__working_dir__,self.storage_dir)
+    def __init__(self, config: dict, topic_id: str):
+        try:
+            global __working_dir__
+            # self.logger: LoggerService = logger
+            self.config = config
+            self.share_storage = config.get('message').get('share-storage')
+            if self.share_storage is None:
+                raise Exception('share-storage was not found at message in config.yml')
+            if self.share_storage[0:2] == "./":
+                self.share_storage =os.path.join(__working_dir__, self.share_storage)
+                if not os.path.isdir(self.share_storage):
+                    os.makedirs(self.share_storage)
+            self.storage_dir = self.config.get('message').get('temp-dir')
+            if self.storage_dir[0:2]=='./':
+                self.storage_dir=self.storage_dir[2:]
+                self.storage_dir= os.path.join(__working_dir__,self.storage_dir)
+                if not os.path.isdir(self.storage_dir):
+                    os.makedirs(self.storage_dir)
             if not os.path.isdir(self.storage_dir):
-                os.makedirs(self.storage_dir)
-        if not os.path.isdir(self.storage_dir):
-            raise Exception(f"{self.storage_dir} was not found. Preview config.yml at 'message/temp-dir'")
-        self.brokers = self.config.get('message').get(self.config.get('message').get('type')).get('brokers')
-        self.topic_id = topic_id
-        self.group_id = f"g_{uuid.uuid4()}"
-        print("-init consumer")
-        print(f"- brokers-server:{','.join(self.brokers)}")
-        print(f"- topic :{self.topic_id}")
-        print(f"- group :{self.group_id}")
-        self.__consumer__ = None
+                raise Exception(f"{self.storage_dir} was not found. Preview config.yml at 'message/temp-dir'")
+            self.brokers = self.config.get('message').get(self.config.get('message').get('type')).get('brokers')
+            self.topic_id = topic_id
+            self.group_id = f"g_{uuid.uuid4()}"
+            print("-init consumer")
+            print(f"- brokers-server:{','.join(self.brokers)}")
+            print(f"- topic :{self.topic_id}")
+            print(f"- group :{self.group_id}")
+            self.__consumer__ = None
+            app_logs.info("Start comsumer repository is ok")
+        except Exception as ex:
+            app_logs.debug(ex)
 
     @property
     def consumer(self) -> KafkaConsumer:
@@ -63,6 +75,7 @@ class BaseConsumer:
                     auto_offset_reset='earliest'
                 )
             except Exception as ex:
+                app_logs.debug(ex)
                 print("-init consumer fail")
         return self.__consumer__
 
@@ -91,6 +104,7 @@ class BaseConsumer:
 
     def start(self):
         print("start")
+        app_logs.info("start")
         time.sleep(0.3)
         while True:
             time.sleep(0.3)
@@ -99,7 +113,7 @@ class BaseConsumer:
             except Exception as e:
                 print("error")
                 print(str(e))
-                self.logger.error(e)
+                app_logs.debug(e)
 
     def start1(self):
         print("start")
@@ -119,4 +133,6 @@ class BaseConsumer:
             th.join(0.5)
             print("join thread")
         except Exception as e:
-            print("Loi")
+            app_logs.debug(e)
+    def get_full_path_from_share_storage(self,app_name, relative_file_path):
+        return os.path.join(self.share_storage,app_name, relative_file_path)

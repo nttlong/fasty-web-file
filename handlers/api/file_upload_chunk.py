@@ -47,6 +47,7 @@ async def files_upload(app_name: str,
     """
     topic báo hiệu 1 file đã được upload 
     """
+    fx=1
     register = await file_service.get_upload_by_id(app_name, upload_id=UploadId)
 
     info = await file_storage_service.add_binary(
@@ -86,8 +87,8 @@ async def files_upload(app_name: str,
             message_service.send_message_upload_file_to_brokers(uploaded_file)
         except Exception as e:
             print("Loi")
-            print(f"{e}")
+
             app_logs.debug(e)
     await file_service.update_register(app_name, register)
-
+    print("file_service.update_register")
     return ret

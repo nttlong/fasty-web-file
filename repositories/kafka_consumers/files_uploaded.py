@@ -3,19 +3,20 @@ import time
 
 from kafka import KafkaProducer
 
+import app_logs
 import broker_group_const
 from repositories.kafka_consumers.base import BaseConsumer, FileProcessMessage
 from dependency_injector.wiring import inject, provided
 
-from services.logger_services import LoggerService
+# from services.logger_services import LoggerService
 
 
 class ConsumerFileUploaded(BaseConsumer):
-    def __init__(self, config,logger):
+    def __init__(self, config):
         BaseConsumer.__init__(
             self,
             config,
-            broker_group_const.MSG_GROUP_FILE_UPLOADED,logger)
+            broker_group_const.MSG_GROUP_FILE_UPLOADED)
         self.__producer__ =None
 
     @property
@@ -42,26 +43,27 @@ class ConsumerFileUploaded(BaseConsumer):
                         broker_group_const.MSG_GROUP_FILE_IMAGE_CREATE_THUMBS,
                         self.convert_object_to_binary(msg_info)
                     )
-                    self.logger.error(f"{broker_group_const.MSG_GROUP_FILE_IMAGE_CREATE_THUMBS} was raise\n"
+
+                    app_logs.info(f"{broker_group_const.MSG_GROUP_FILE_IMAGE_CREATE_THUMBS} was raise\n"
                                       f"{msg_info.content_location}")
                     self.producer.send(
                         broker_group_const.MSG_GROUP_FILE_IMAGE_OCR,
                         self.convert_object_to_binary(msg_info)
                     )
-                    self.logger.error(f"{broker_group_const.MSG_GROUP_FILE_IMAGE_CREATE_THUMBS} was raise\n"
+                    app_logs.info(f"{broker_group_const.MSG_GROUP_FILE_IMAGE_CREATE_THUMBS} was raise\n"
                                       f"{msg_info.content_location}")
                 elif mime_type=="application/pdf":
                     self.producer.send(
                         broker_group_const.MSG_GROUP_FILE_PDF_CREATE_THUMBS,
                         self.convert_object_to_binary(msg_info)
                     )
-                    self.logger.error(f"{broker_group_const.MSG_GROUP_FILE_PDF_CREATE_THUMBS} was raise\n"
+                    app_logs.info(f"{broker_group_const.MSG_GROUP_FILE_PDF_CREATE_THUMBS} was raise\n"
                                       f"{msg_info.content_location}")
                     self.producer.send(
                         broker_group_const.MSG_GROUP_FILE_PDF_CREATE_OCR,
                         self.convert_object_to_binary(msg_info)
                     )
-                    self.logger.error(f"{broker_group_const.MSG_GROUP_FILE_PDF_CREATE_OCR} was raise\n"
+                    app_logs.info(f"{broker_group_const.MSG_GROUP_FILE_PDF_CREATE_OCR} was raise\n"
                                       f"{msg_info.content_location}")
                 elif 'application/vnd.openxmlformats-officedocument' in mime_type:
                     self.producer.send(
@@ -74,24 +76,25 @@ class ConsumerFileUploaded(BaseConsumer):
                         broker_group_const.MSG_GROUP_FILE_OFFICE_CREATE_SEARCH_INDEX,
                         self.convert_object_to_binary(msg_info)
                     )
-                    self.logger.error(f"{broker_group_const.MSG_GROUP_FILE_OFFICE_CREATE_SEARCH_INDEX} was raise\n"
+                    app_logs.info(f"{broker_group_const.MSG_GROUP_FILE_OFFICE_CREATE_SEARCH_INDEX} was raise\n"
                                       f"{msg_info.content_location}")
                 elif 'video/' in mime_type:
                     self.producer.send(
                         broker_group_const.MSG_GROUP_FILE_VIDEO_CREATE_THUMBS,
                         self.convert_object_to_binary(msg_info)
                     )
-                    self.logger.error(f"{broker_group_const.MSG_GROUP_FILE_VIDEO_CREATE_THUMBS} was raise\n"
+                    app_logs.info(f"{broker_group_const.MSG_GROUP_FILE_VIDEO_CREATE_THUMBS} was raise\n"
                                       f"{msg_info.content_location}")
 
                 else:
                     print("OK")
-                    self.logger.error("--------------------------------")
-                    self.logger.error("not impletement")
-                    self.logger.error(self.get_msg_data(msg))
-                    self.logger.error("--------------------------------")
+                    app_logs.error("--------------------------------")
+                    app_logs.error("not impletement")
+                    app_logs.error(self.get_msg_data(msg))
+                    app_logs.error("--------------------------------")
         except Exception as e:
-            self.logger.error(e)
+            print("Loi")
+            app_logs.error(e)
 
 
 

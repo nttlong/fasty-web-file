@@ -12,9 +12,14 @@ docker compose -f fscrawler.yml up -d
 docker compose -f web.yml build
 docker compose -f web.yml up -d
 
-#----------simple------
+#----------simplest boost------
 
 docker compose -f kafka.yml up -d
 docker compose -f mongodb.yml up -d
 docker compose -f web.yml build
 docker compose -f web.yml up -d
+docker compose -f consumer-upload.yml build
+docker compose -f consumer-upload.yml up -d
+docker compose -f consumer-files-create-thumb.yml build
+docker compose -f consumer-files-create-thumb.yml up -d
+#----------simplest boos finish------

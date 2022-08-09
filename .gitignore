@@ -8,3 +8,4 @@
 /docker-data-map/
 /ansible/
 /docker-tmp/
+/inside-docker-container/

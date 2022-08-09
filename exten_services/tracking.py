@@ -21,12 +21,14 @@ class TrackingService:
         global __cache__
         global __lock__
         global log_directory
+        full_log_dir=""
         if __cache__.get(log_dir) is None:
             __lock__.acquire()
             try:
                 full_log_dir = os.path.join(log_directory, log_dir)
                 if not os.path.isdir(full_log_dir):
                     os.makedirs(full_log_dir)
+                print(f"log directory '{full_log_dir}'")
                 log_file_path = os.path.join(full_log_dir, "log.txt")
                 fileh = logging.FileHandler(log_file_path, 'a')
                 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -36,6 +38,7 @@ class TrackingService:
                 logger.addHandler(fileh)
                 __cache__[log_dir] = logger
             except Exception as e:
+                print(f"fail to connect log directory '{full_log_dir}'")
                 print(e)
             finally:
                 __lock__.release()

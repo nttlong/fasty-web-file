@@ -20,9 +20,10 @@ class KafkaMessageRepository(BaseMessage):
         self.producer:KafkaProducer = KafkaProducer(bootstrap_servers=self.config)
 
     def send_dict_data(self,group_id:str,data:dict):
+        print(f"send message to {self.config} ...")
         future = self.producer.send(group_id, str.encode(json.dumps(data)))
         try:
-            record_metadata = future.get(timeout=10)
+            record_metadata = future.get()
             app_logs.debug(f"send message to {self.config} is ok")
             print(f"send message to {self.config} is ok")
         except KafkaError as ex:

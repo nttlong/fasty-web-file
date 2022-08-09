@@ -61,6 +61,7 @@ storage:
 message:
   type: kafka
   temp-dir: /app/tmp
+  share-storage: /app/tmp
   kafka:
     brokers:
       - 172.16.13.72:9092

@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  consumer-file-thumb:
+    build:
+      context: ./..
+      dockerfile: ./composer/consumer-files-create-thumb-dockerfile
+    volumes:
+      - ${PATH_LOCAL_DIR_IN_HOST}/web-api/tmp-file-upload/:/app/tmp
+      - ${PATH_LOCAL_DIR_IN_HOST}/web-api/tmp-processing-file/:/app/content-processing
+    command: >
+      sh -c "
+        
+        python3  /app/broker_consumer_when_file_image_create_thumbs.py
+        "
+
+#    command: python3  /app/broker_consumer_when_file_uploaded.py

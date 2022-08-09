@@ -15,20 +15,19 @@ class ConsumerFileImageProcessThumb(BaseConsumer):
     def __init__(
             self,
             config,
-            logger,
             file_storage_repo:FileStorageBaseRepository,
             file_service:FileService
     ):
         BaseConsumer.__init__(
             self,
             config,
-            broker_group_const.MSG_GROUP_FILE_IMAGE_CREATE_THUMBS,logger)
+            broker_group_const.MSG_GROUP_FILE_IMAGE_CREATE_THUMBS)
         self.producer = KafkaProducer(bootstrap_servers=self.brokers)
         self.file_storage_repo=file_storage_repo
         self.file_service=file_service
 
     @inject
-    async def run(self,image_service:ImageFileService= Provide[MediaContainer.image_file_service]):
+    async def run(self,image_service:ImageFileService=Provide[MediaContainer.image_file_service]):
         try:
 
             for msg in self.consumer:

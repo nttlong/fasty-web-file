@@ -20,9 +20,10 @@ working_dir =str(pathlib.Path(__file__).parent.parent)
 async def catch_exceptions_middleware(request: Request, call_next):
     try:
         return await call_next(request)
-    except Exception as e:
+    except Exception as ex:
+        app_logs.debug(ex)
         # you probably want some kind of logging here
-        return Response("loi", status_code=500)
+        return Response("Server error", status_code=500)
 
 
 @inject

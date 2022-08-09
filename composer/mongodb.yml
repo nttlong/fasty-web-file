@@ -8,7 +8,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ${MONGODB_DIR_DATA}:/data/db
+      - ${PATH_LOCAL_DIR_IN_HOST}/mongodb/data:/data/db
 
 volumes:
   mongodb_data_container:

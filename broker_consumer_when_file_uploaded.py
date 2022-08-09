@@ -21,13 +21,10 @@ def run(
         consumer_file_uploaded: ConsumerFileUploaded = Provide[FileProcessingContainer.consumer_file_uploaded],
         tracking : TrackingService= Provide[apps_containers.tracking.TrackingContainer.tracking]
 ):
-    logg= tracking.get_logger(__file__)
-    print("start consumer")
-    # while True:
-    #     print("OK")
-    #     logg.info("OK")
-    #
-    #     time.sleep(1)
+    logger= tracking.get_logger(__file__)
+    logger.info(f"Start {__file__}")
+    print(f"Start {__file__}")
+
     consumer_file_uploaded.start()
 
 

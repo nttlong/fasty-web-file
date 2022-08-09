@@ -5,8 +5,9 @@ from dependency_injector import containers, providers
 #
 from repositories.files import FileRepository
 from repositories.kafka_consumers.message_file_thumb import ConsumerFileImageProcessThumb
+from repositories.kafka_consumers.message_file_thumb_video import ConsumerFileVideoProcessThumb
 from services.files import FileService
-from services.logger_services import LoggerService
+# from services.logger_services import LoggerService
 from repositories.kafka_consumers.files_uploaded import ConsumerFileUploaded
 from repositories.base_message import BaseMessage, FakeMessage
 from repositories.s3_repository import FileStorageS3DbRepository
@@ -32,11 +33,11 @@ class FileProcessingContainer(containers.DeclarativeContainer):
         config=config
     )
 
-    logger_service: LoggerService =providers.Factory(
-        LoggerService,
-        working_dir = str(pathlib.Path(__file__).parent.parent)
-
-    )
+    # logger_service: LoggerService =providers.Factory(
+    #     LoggerService,
+    #     working_dir = str(pathlib.Path(__file__).parent.parent)
+    #
+    # )
     file_storage_repo: FileStorageBaseRepository = None
     msg_repo: BaseMessage = providers.Factory(
         FakeMessage
@@ -62,8 +63,7 @@ class FileProcessingContainer(containers.DeclarativeContainer):
 
     consumer_file_uploaded:ConsumerFileUploaded= providers.Factory(
         ConsumerFileUploaded,
-        config=config,
-        logger=logger_service
+        config=config
     )
     db = providers.Factory(
         DbConnection,
@@ -83,12 +83,20 @@ class FileProcessingContainer(containers.DeclarativeContainer):
     consumer_file_image_process_thumb:ConsumerFileImageProcessThumb = providers.Factory(
         ConsumerFileImageProcessThumb,
         config =config,
-        logger=logger_service,
+
         file_storage_repo=file_storage_repo,
         file_service =file_service
 
     )
+    consumer_file_video_process_thumb: ConsumerFileVideoProcessThumb = providers.Factory(
+        ConsumerFileVideoProcessThumb,
+        config=config,
 
+        file_storage_repo=file_storage_repo,
+        file_service=file_service
+
+    )
+    #ConsumerFileVideoProcessThumb
 
 
 

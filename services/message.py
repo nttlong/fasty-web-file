@@ -1,3 +1,5 @@
+from kafka.errors import KafkaTimeoutError
+
 import repositories.base_message
 import services.message_data_types as msg_dataTypes
 from must_implement import get_dict
@@ -14,6 +16,9 @@ class MessageServices:
                     group_id=msg.message_type,
                     data=get_dict(msg)
                 )
+            except KafkaTimeoutError as ex_timeout:
+                print("Send message to kafka is timeout")
+                app_logs.debug(ex_timeout)
             except Exception as ex:
                 print("Send message to kafka error")
                 app_logs.debug(ex)

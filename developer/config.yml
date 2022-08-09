@@ -57,7 +57,8 @@ storage:
 
 message:
   type: kafka
-  temp-dir: ./tmp
+  share-storage: ./inside-docker-container/web-api/tmp-file-upload
+  temp-dir: ./inside-docker-container/web-api/tmp-file-upload #depreciate on the next version
   kafka:
     brokers:
       - 172.16.13.72:9092
