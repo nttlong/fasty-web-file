@@ -2,6 +2,7 @@ import os
 import pathlib
 from kafka import KafkaProducer
 
+import app_logs
 import broker_group_const
 from repositories.file_storage_base import FileStorageBaseRepository
 from repositories.kafka_consumers.base import BaseConsumer, FileProcessMessage
@@ -36,12 +37,20 @@ class ConsumerFileVideoProcessThumb(BaseConsumer):
 
             for msg in self.consumer:
                 msg_info = self.convert_msg_to(msg, FileProcessMessage)
+                app_logs.info(f"Receive new message "
+                              f"App: {msg_info.app_name}"
+                              f"UploadId: {msg_info.upload_id}"
+                              f"Relative Content: {msg_info.relative_file_path}"
+                              f"Message Type: {msg_info.message_type}")
                 full_path_to_file =self.get_full_path_from_share_storage(msg_info.app_name, msg_info.relative_file_path)
                 register = await self.file_service.get_upload_by_id(
                     app_name= msg_info.app_name,
                     upload_id= msg_info.upload_id
                 )
-                video_file_location = video_service.extract_framTo_imag(full_path_to_file)
+                success, video_file_location = video_service.extract_frame_to_image(full_path_to_file)
+                if not success:
+                    print(f"Can not get image from video {full_path_to_file}")
+                    app_logs.info(f"Can not get image from video {full_path_to_file}")
                 thumb_location = image_service.create_thumb(video_file_location, thumb_width=600,
                                                             thumb_height=600)
                 file_name = pathlib.Path(full_path_to_file).name.split('.')[0]
@@ -54,12 +63,13 @@ class ConsumerFileVideoProcessThumb(BaseConsumer):
                         data=data,
                         file_size_in_bytes=data.__len__()
                     )
+
                 if register.HasThumb == False:
                     register.HasThumb = True
                     await self.file_service.update_register(msg_info.app_name, register)
 
         except Exception as e:
-            self.logger.error(e)
+            app_logs.error(e)
 
 
 

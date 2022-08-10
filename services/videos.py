@@ -1,5 +1,6 @@
 import os
 import pathlib
+import typing
 import uuid
 
 import cv2
@@ -15,17 +16,19 @@ class VideoFileService(BaseFileProcessFileService):
         if not os.path.isdir(self.temp_dir_thumb):
             os.makedirs(self.temp_dir_thumb)
 
-    def extract_framTo_imag(self, full_path_to_file:str):
+    def extract_frame_to_image(self, full_path_to_file:str)->(bool,str):
         """
         Extract  frame in middle video to image file
         """
+        is_ok = False
         thumb_file_name= pathlib.Path(full_path_to_file).name.split('.')[0]
         # png_thumb=f"{thumb_file_name}.png"
         full_png_file_path = os.path.join(self.temp_dir_thumb, str(uuid.uuid4()), f"{thumb_file_name}.png")
         dir_of_image_path = str(pathlib.Path(full_png_file_path).parent)
         if not os.path.isdir(dir_of_image_path):
             os.makedirs(dir_of_image_path)
-
+        if not os.path.isfile(full_path_to_file):
+            return False,None
         vcap = cv2.VideoCapture(full_path_to_file)
 
         fps = vcap.get(cv2.CAP_PROP_FPS)  # OpenCV v2.x used "CV_CAP_PROP_FPS"
@@ -37,7 +40,9 @@ class VideoFileService(BaseFileProcessFileService):
         if not success:
             print(f"Extract frame  to {full_png_file_path} is fail")
             app_logs.debug(f"Extract frame  to {full_png_file_path} is fail")
+            return False, None
         cv2.imwrite( full_png_file_path, image)
         print(f"Extract frame  to {full_png_file_path} is ok")
         app_logs.debug(f"Extract frame  to {full_png_file_path} is ok")
-        return full_png_file_path
+
+        return True, full_png_file_path

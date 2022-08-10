@@ -22,4 +22,6 @@ docker compose -f consumer-upload.yml build
 docker compose -f consumer-upload.yml up -d
 docker compose -f consumer-files-create-thumb.yml build
 docker compose -f consumer-files-create-thumb.yml up -d
+docker compose -f consumer-files-video-create-thumb.yml build
+docker compose -f consumer-files-video-create-thumb.yml up -d
 #----------simplest boos finish------

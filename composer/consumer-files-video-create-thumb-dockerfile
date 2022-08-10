@@ -1,11 +1,14 @@
 FROM python:3.8-slim
+
 RUN apt-get update
 RUN apt-get install -y libopencv-dev python3-opencv
+
+RUN apt-get install -y libsm6 libxext6 libxrender-dev
+
 WORKDIR /app
 RUN /usr/local/bin/python -m pip install --upgrade pip
-RUN /usr/local/bin/python -m pip install --upgrade pip
+RUN pip install opencv-python
 COPY requirements.txt ./
 RUN pip3 install --no-cache-dir -r requirements.txt
 
 COPY . /app
-EXPOSE 8000

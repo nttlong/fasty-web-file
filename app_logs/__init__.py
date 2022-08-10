@@ -3,8 +3,9 @@ import os.path
 import pathlib
 import sys
 import traceback
-
+print("app_logs start")
 working_dir = str(pathlib.Path(__file__).parent.parent)
+print(f"{__name__} wokring dir :{working_dir}")
 __main_file_path__ =pathlib.Path(sys.modules["__main__"].__file__).name.split('.')[0]
 log_directory = os.path.join(working_dir,"logs",__main_file_path__)
 if not os.path.isdir(log_directory):

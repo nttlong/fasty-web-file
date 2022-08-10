@@ -1,4 +1,7 @@
 import sys
+
+import app_logs
+
 if "dev" in sys.argv:
     import developer
 import apps_containers.utils
@@ -8,7 +11,8 @@ from dependency_injector.wiring import Provide, inject
 from brokers_services.containers import FileProcessingContainer
 from repositories.kafka_consumers.message_file_thumb_video import ConsumerFileVideoProcessThumb
 from start_config import get_config_path
-
+app_logs.info("start")
+print("start")
 @inject
 def run(
         consumer_file_video_process_thumb: ConsumerFileVideoProcessThumb = Provide[

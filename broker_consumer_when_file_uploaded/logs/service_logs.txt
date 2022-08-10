@@ -1,0 +1,9 @@
+2022-08-10 10:00:03,384 - services.logger_services - DEBUG - message.file.upload.image.thumb was raise
+/app/tmp/lv-media/294014d0-58fd-4ed4-ad8d-aa33383367db/Screenshot from 2022-04-18 17-29-43.png
+2022-08-10 10:00:03,386 - services.logger_services - DEBUG - message.file.upload.image.thumb was raise
+/app/tmp/lv-media/294014d0-58fd-4ed4-ad8d-aa33383367db/Screenshot from 2022-04-18 17-29-43.png
+2022-08-10 10:06:03,524 - services.logger_services - INFO - Init log service is ok
+2022-08-10 10:06:07,619 - services.logger_services - DEBUG - message.file.upload.image.thumb was raise
+/app/tmp/lv-media/294014d0-58fd-4ed4-ad8d-aa33383367db/Screenshot from 2022-04-18 17-29-43.png
+2022-08-10 10:06:07,622 - services.logger_services - DEBUG - message.file.upload.image.thumb was raise
+/app/tmp/lv-media/294014d0-58fd-4ed4-ad8d-aa33383367db/Screenshot from 2022-04-18 17-29-43.png

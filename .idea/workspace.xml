@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e8b92c7-4fdb-4720-bcc8-0afabcfcc65d" name="Changes" comment="ok">
-      <change afterPath="$PROJECT_DIR$/broker_consumer_when_file_create_thumb_video.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/consumer-files-create-thumb-dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/consumer-files-create-thumb.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_video.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/videos.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_logs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app_logs/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps_containers/media_content.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps_containers/media_content.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/broker_consumer_when_file_uploaded.py" beforeDir="false" afterPath="$PROJECT_DIR$/broker_consumer_when_file_uploaded.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/brokers_services/containers.py" beforeDir="false" afterPath="$PROJECT_DIR$/brokers_services/containers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/.env" beforeDir="false" afterPath="$PROJECT_DIR$/composer/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/cmd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/composer/cmd.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/consumer-upload.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/consumer-upload.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/kafka.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/kafka.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/mongodb.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/mongodb.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/web.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/web.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/developer/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/developer/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exten_services/tracking.py" beforeDir="false" afterPath="$PROJECT_DIR$/exten_services/tracking.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/logger_services.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/logger_services.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/consumer-files-create-thumb-dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/composer/consumer-files-create-thumb-dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/web-dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/composer/web-dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,15 +31,27 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/broker_consumer_when_file_create_thumb_video.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/broker_consumer_when_file_image_create_thumbs.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/brokers_services/containers.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/.env" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/cmd.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/consumer-files-create-thumb-dockerfile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/consumer-files-create-thumb.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/consumer-files-video-create-thumb-dockerfile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/consumer-files-video-create-thumb.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/database_connector/database.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/developer/config.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/endpoints/__init__.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/handlers/api/apps.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/must_implement/__init__.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/base.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_video.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/repositories/s3_repository.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/services/files.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/services/videos.py" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -76,7 +67,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "com.google.cloudcode.ide_session_index": "20220810_0001",
-    "last_opened_file_path": "/home/python/code/fasty-web-file/composer/consumer_file_uploaded",
+    "last_opened_file_path": "/home/python/code/fasty-web-file",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
@@ -90,16 +81,17 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/composer/consumer_file_uploaded" />
       <recent name="$PROJECT_DIR$/developer" />
       <recent name="$PROJECT_DIR$/composer/web" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/composer" />
       <recent name="C:\code\python\fasty-web-file\composer" />
       <recent name="C:\code\python\fasty-web-file" />
       <recent name="$PROJECT_DIR$/apps_containers" />
       <recent name="$PROJECT_DIR$/database_connector" />
-      <recent name="$PROJECT_DIR$/utils" />
     </key>
   </component>
   <component name="RunManager" selected="Python.broker_consumer_when_file_create_thumb_video">
@@ -460,7 +452,28 @@
       <option name="project" value="LOCAL" />
       <updated>1660044189407</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="ok">
+      <created>1660115934248</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1660115934248</updated>
+    </task>
+    <task id="LOCAL-00033" summary="ok">
+      <created>1660118481080</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1660118481080</updated>
+    </task>
+    <task id="LOCAL-00034" summary="ok">
+      <created>1660124732685</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1660124732685</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -532,19 +545,9 @@
           <option name="timeStamp" value="383" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/services/videos.py</url>
-          <line>40</line>
-          <option name="timeStamp" value="427" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/services/videos.py</url>
-          <line>36</line>
-          <option name="timeStamp" value="428" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/services/videos.py</url>
-          <line>25</line>
-          <option name="timeStamp" value="429" />
+          <url>file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_video.py</url>
+          <line>69</line>
+          <option name="timeStamp" value="436" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

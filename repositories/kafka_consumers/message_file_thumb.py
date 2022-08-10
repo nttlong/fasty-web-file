@@ -1,6 +1,7 @@
 import pathlib
 from kafka import KafkaProducer
 
+import app_logs
 import broker_group_const
 from repositories.file_storage_base import FileStorageBaseRepository
 from repositories.kafka_consumers.base import BaseConsumer, FileProcessMessage
@@ -36,6 +37,11 @@ class ConsumerFileImageProcessThumb(BaseConsumer):
                     app_name= msg_info.app_name,
                     upload_id= msg_info.upload_id
                 )
+                app_logs.info(f"Receive new message "
+                              f"App: {msg_info.app_name}"
+                              f"UploadId: {msg_info.upload_id}"
+                              f"Relative Content: {msg_info.relative_file_path}"
+                              f"Message Type: {msg_info.message_type}")
                 if register is None:
                     continue
                 file_name = pathlib.Path(msg_info.content_location).name.split('.')[0]
@@ -64,7 +70,7 @@ class ConsumerFileImageProcessThumb(BaseConsumer):
                         await self.file_service.update_register(msg_info.app_name, register)
 
         except Exception as e:
-            self.logger.error(e)
+            app_logs.error(e)
 
 
 
