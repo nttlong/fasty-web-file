@@ -1,0 +1,31 @@
+version: '3.7'
+services:
+#  libreoffice:
+#    image: xcgd/libreoffice
+#    command:
+#      - ls
+##    environment:
+#      - PUID=1000
+#      - PGID=1000
+#      - TZ=Europe/London
+#    volumes:
+#      - ${PATH_LOCAL_DIR_IN_HOST}/libre-offiic/config:/config
+#    ports:
+#      - 3000:3000
+#    restart: unless-stopped
+  consumer-file-office-thumb:
+    build:
+      context: ./..
+      dockerfile: ./composer/consumer-files-office-create-thumb-dockerfile
+    volumes:
+      - ${PATH_LOCAL_DIR_IN_HOST}/web-api/tmp-file-upload/:/app/tmp
+      - ${PATH_LOCAL_DIR_IN_HOST}/web-api/tmp-processing-file/:/app/content-processing
+    command: >
+      sh -c "
+        
+        python3  /app/broker_consumer_file_office_thumb.py
+        "
+
+#    command: python3  /app/broker_consumer_when_file_uploaded.py
+
+

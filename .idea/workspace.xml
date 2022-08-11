@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e8b92c7-4fdb-4720-bcc8-0afabcfcc65d" name="Changes" comment="ok">
+      <change afterPath="$PROJECT_DIR$/composer/consumer-files-office-create-thumb-dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/consumer-files-office-create-thumb.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/consumer-files-create-thumb-dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/composer/consumer-files-create-thumb-dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/web-dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/composer/web-dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/cmd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/composer/cmd.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/consumer-files-create-thumb.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/consumer-files-create-thumb.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_office.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_office.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/offices.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/offices.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,6 +36,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/apps_containers/media_content.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/broker_consumer_file_office_thumb.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/broker_consumer_when_file_create_thumb_video.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/broker_consumer_when_file_image_create_thumbs.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/brokers_services/containers.py" root0="FORCE_HIGHLIGHTING" />
@@ -38,20 +45,28 @@
     <setting file="file://$PROJECT_DIR$/composer/cmd.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/consumer-files-create-thumb-dockerfile" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/consumer-files-create-thumb.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/consumer-files-office-create-thumb-dockerfile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/consumer-files-office-create-thumb.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/consumer-files-video-create-thumb-dockerfile" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/consumer-files-video-create-thumb.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/consumer-upload-dockerfile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/consumer-upload.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/database_connector/database.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/developer/config.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/endpoints/__init__.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/handlers/api/apps.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/logs/broker_consumer_file_office_thumb/log.txt" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/must_implement/__init__.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/base.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_office.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_video.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/repositories/s3_repository.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/services/files.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/services/offices.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/services/videos.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/lib/python3.8/subprocess.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -66,8 +81,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.google.cloudcode.ide_session_index": "20220810_0001",
-    "last_opened_file_path": "/home/python/code/fasty-web-file",
+    "com.google.cloudcode.ide_session_index": "20220811_0000",
+    "last_opened_file_path": "/home/python/code/fasty-web-file/composer",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
@@ -81,6 +96,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/composer" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/composer/consumer_file_uploaded" />
       <recent name="$PROJECT_DIR$/developer" />
@@ -94,7 +110,28 @@
       <recent name="$PROJECT_DIR$/database_connector" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.broker_consumer_when_file_create_thumb_video">
+  <component name="RunManager" selected="Python.broker_consumer_file_office_thumb">
+    <configuration name="broker_consumer_file_office_thumb" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="fasty-web-file" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/broker_consumer_file_office_thumb.py" />
+      <option name="PARAMETERS" value="dev" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="broker_consumer_when_file_create_thumb_video" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="fasty-web-file" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -473,7 +510,21 @@
       <option name="project" value="LOCAL" />
       <updated>1660124732685</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="ok">
+      <created>1660126337350</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1660126337350</updated>
+    </task>
+    <task id="LOCAL-00036" summary="ok">
+      <created>1660201015920</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1660201015920</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -521,11 +572,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/must_implement/__init__.py</url>
-          <line>124</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/must_implement/__init__.py</url>
           <line>152</line>
           <option name="timeStamp" value="74" />
         </line-breakpoint>
@@ -548,6 +594,11 @@
           <url>file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_video.py</url>
           <line>69</line>
           <option name="timeStamp" value="436" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/repositories/kafka_consumers/base.py</url>
+          <line>68</line>
+          <option name="timeStamp" value="442" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

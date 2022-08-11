@@ -65,6 +65,7 @@ class ConsumerFileUploaded(BaseConsumer):
                     )
                     app_logs.info(f"{broker_group_const.MSG_GROUP_FILE_PDF_CREATE_OCR} was raise\n"
                                       f"{msg_info.content_location}")
+                #application/vnd.openxmlformats-officedocument.
                 elif 'application/vnd.openxmlformats-officedocument' in mime_type:
                     self.producer.send(
                         broker_group_const.MSG_GROUP_FILE_OFFICE_CREATE_THUMBS,

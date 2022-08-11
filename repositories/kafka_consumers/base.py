@@ -1,5 +1,6 @@
 import os.path
 import pathlib
+import sys
 import time
 import uuid
 from typing import TypeVar
@@ -32,7 +33,7 @@ class FileProcessMessage:
 
 class BaseConsumer:
     def __init__(self, config: dict, topic_id: str):
-        try:
+        def run_init():
             global __working_dir__
             # self.logger: LoggerService = logger
             self.config = config
@@ -40,13 +41,14 @@ class BaseConsumer:
             if self.share_storage is None:
                 raise Exception('share-storage was not found at message in config.yml')
             if self.share_storage[0:2] == "./":
-                self.share_storage =os.path.join(__working_dir__, self.share_storage)
+                self.share_storage = self.share_storage[2:]
+                self.share_storage = os.path.join(__working_dir__, self.share_storage)
                 if not os.path.isdir(self.share_storage):
                     os.makedirs(self.share_storage)
             self.storage_dir = self.config.get('message').get('temp-dir')
-            if self.storage_dir[0:2]=='./':
-                self.storage_dir=self.storage_dir[2:]
-                self.storage_dir= os.path.join(__working_dir__,self.storage_dir)
+            if self.storage_dir[0:2] == './':
+                self.storage_dir = self.storage_dir[2:]
+                self.storage_dir = os.path.join(__working_dir__, self.storage_dir)
                 if not os.path.isdir(self.storage_dir):
                     os.makedirs(self.storage_dir)
             if not os.path.isdir(self.storage_dir):
@@ -60,8 +62,12 @@ class BaseConsumer:
             print(f"- group :{self.group_id}")
             self.__consumer__ = None
             app_logs.info("Start comsumer repository is ok")
-        except Exception as ex:
-            app_logs.debug(ex)
+        # try:
+        #     run_init()
+        #
+        # except Exception as ex:
+        #     app_logs.debug(ex)
+        run_init()
 
     @property
     def consumer(self) -> KafkaConsumer:
@@ -108,12 +114,15 @@ class BaseConsumer:
         time.sleep(0.3)
         while True:
             time.sleep(0.3)
-            try:
+            if "dev" in sys.argv:
                 syncer.sync(self.run())
-            except Exception as e:
-                print("error")
-                print(str(e))
-                app_logs.debug(e)
+            else:
+                try:
+                    syncer.sync(self.run())
+                except Exception as e:
+                    print("error")
+                    print(str(e))
+                    app_logs.debug(e)
 
     def start1(self):
         print("start")

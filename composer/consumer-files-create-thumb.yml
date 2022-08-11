@@ -1,6 +1,7 @@
 version: '3.7'
 
 services:
+
   consumer-file-thumb:
     build:
       context: ./..

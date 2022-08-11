@@ -17,7 +17,7 @@ def get_config_path() -> str:
         __lock__.acquire()
         try:
             dev_run_mdl = sys.modules.get("developer")
-            if dev_run_mdl and hasattr(dev_run_mdl, "developer_mode"):
+            if dev_run_mdl and hasattr(dev_run_mdl, "developer_mode") or "dev" in sys.argv:
                 import yaml
                 boostrap_yaml_path = os.path.join(__working_dir__, "developer", "boostrap.yml")
                 with open(boostrap_yaml_path, 'rb') as f:

@@ -64,3 +64,4 @@ message:
       - 172.16.13.72:9092
 content-processing:
   temp-dir: ./content-processing
+libre-office-path : /lib/libreoffice/program/soffice

@@ -24,4 +24,7 @@ docker compose -f consumer-files-create-thumb.yml build
 docker compose -f consumer-files-create-thumb.yml up -d
 docker compose -f consumer-files-video-create-thumb.yml build
 docker compose -f consumer-files-video-create-thumb.yml up -d
-#----------simplest boos finish------
+docker compose -f consumer-files-office-create-thumb.yml build
+docker compose -f consumer-files-office-create-thumb.yml up -d
+#----------simplest boost finish------
+#----------good luck and fun ------

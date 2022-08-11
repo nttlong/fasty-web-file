@@ -5,6 +5,7 @@ from dependency_injector import containers, providers
 #
 from repositories.files import FileRepository
 from repositories.kafka_consumers.message_file_thumb import ConsumerFileImageProcessThumb
+from repositories.kafka_consumers.message_file_thumb_office import ConsumerFileOfficeProcessThumb
 from repositories.kafka_consumers.message_file_thumb_video import ConsumerFileVideoProcessThumb
 from services.files import FileService
 # from services.logger_services import LoggerService
@@ -90,6 +91,14 @@ class FileProcessingContainer(containers.DeclarativeContainer):
     )
     consumer_file_video_process_thumb: ConsumerFileVideoProcessThumb = providers.Factory(
         ConsumerFileVideoProcessThumb,
+        config=config,
+
+        file_storage_repo=file_storage_repo,
+        file_service=file_service
+
+    )
+    consumer_file_office_process_thumb: ConsumerFileOfficeProcessThumb = providers.Factory(
+        ConsumerFileOfficeProcessThumb,
         config=config,
 
         file_storage_repo=file_storage_repo,
