@@ -1,5 +1,8 @@
 import os
 import pathlib
+import threading
+
+import syncer
 from kafka import KafkaProducer
 
 import app_logs
@@ -34,6 +37,7 @@ class ConsumerFileOfficeProcessThumb(BaseConsumer):
                   office_file_service: OfficeFileService = Provide[MediaContainer.office_file_service],
                   image_service: ImageFileService = Provide[MediaContainer.image_file_service]
                   ):
+        import asyncio
         for msg in self.consumer:
             msg_info = self.convert_msg_to(msg, FileProcessMessage)
             app_logs.info(f"Receive new message "
@@ -45,7 +49,7 @@ class ConsumerFileOfficeProcessThumb(BaseConsumer):
                                                                       msg_info.relative_file_path)
 
             if not os.path.isfile(full_path_to_file):
-                continue
+                return
             register = await self.file_service.get_upload_by_id(
                 app_name=msg_info.app_name,
                 upload_id=msg_info.upload_id
@@ -68,3 +72,4 @@ class ConsumerFileOfficeProcessThumb(BaseConsumer):
             if register.HasThumb == False:
                 register.HasThumb = True
                 await self.file_service.update_register(msg_info.app_name, register)
+

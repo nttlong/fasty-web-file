@@ -1,6 +1,8 @@
+import asyncio
 import os.path
 import pathlib
 import sys
+import threading
 import time
 import uuid
 from typing import TypeVar
@@ -29,6 +31,7 @@ class FileProcessMessage:
     """
     Full path to content where file has been uploaded
     """
+from multiprocessing import Process
 
 
 class BaseConsumer:
@@ -116,9 +119,14 @@ class BaseConsumer:
             time.sleep(0.3)
             if "dev" in sys.argv:
                 syncer.sync(self.run())
+
+
             else:
                 try:
-                    syncer.sync(self.run())
+                    loop = asyncio.new_event_loop()
+                    asyncio.set_event_loop(loop)
+                    loop.create_task(self.run())
+                    loop.run_forever()
                 except Exception as e:
                     print("error")
                     print(str(e))

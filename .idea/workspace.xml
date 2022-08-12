@@ -2,14 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e8b92c7-4fdb-4720-bcc8-0afabcfcc65d" name="Changes" comment="ok">
-      <change afterPath="$PROJECT_DIR$/composer/consumer-files-office-create-thumb-dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/consumer-files-office-create-thumb.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/config/job_name/_settings.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/fscrawler-dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/fscrawler/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/fscrawler/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/fscrawler/config/job_name/settings.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/fscrawler/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/composer/fscrawler/install-fscrawler.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/.env" beforeDir="false" afterPath="$PROJECT_DIR$/composer/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer/cmd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/composer/cmd.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/consumer-files-create-thumb.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/consumer-files-create-thumb.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/es.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/es.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/from-git-hub/docker-fscrawler/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/composer/from-git-hub/docker-fscrawler/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer/fscrawler.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/fscrawler.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_office.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_office.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/offices.py" beforeDir="false" afterPath="$PROJECT_DIR$/services/offices.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +53,7 @@
     <setting file="file://$PROJECT_DIR$/brokers_services/containers.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/.env" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/cmd.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/config/job_name/_settings.yaml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/consumer-files-create-thumb-dockerfile" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/consumer-files-create-thumb.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/consumer-files-office-create-thumb-dockerfile" root0="FORCE_HIGHLIGHTING" />
@@ -51,6 +62,15 @@
     <setting file="file://$PROJECT_DIR$/composer/consumer-files-video-create-thumb.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/consumer-upload-dockerfile" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/consumer-upload.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/es.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/from-git-hub/docker-fscrawler/Dockerfile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/from-git-hub/docker-fscrawler/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/fscrawler-dockerfile" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/fscrawler.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/fscrawler/config/job_name/settings.yaml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/fscrawler/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/fscrawler/install-fscrawler.sh" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/fscrawler/logs/fscrawler.log" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/config.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/database_connector/database.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/developer/config.yml" root0="FORCE_HIGHLIGHTING" />
@@ -524,7 +544,28 @@
       <option name="project" value="LOCAL" />
       <updated>1660201015920</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="ok">
+      <created>1660213250590</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1660213250590</updated>
+    </task>
+    <task id="LOCAL-00038" summary="ok">
+      <created>1660277301150</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1660277301150</updated>
+    </task>
+    <task id="LOCAL-00039" summary="ok">
+      <created>1660280212431</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1660280212431</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -597,7 +638,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/repositories/kafka_consumers/base.py</url>
-          <line>68</line>
+          <line>71</line>
           <option name="timeStamp" value="442" />
         </line-breakpoint>
       </breakpoints>

@@ -1,17 +1,23 @@
-version: '3'
+# Even though latest ATM is 3,
+# sticking wtih 2.1 for the "condition" in "depends_on"
+# It was deprecated in version 3
+# Check https://docs.docker.com/compose/startup-order/
+# 
+# Update 2020-12-04: could check
+# - https://github.com/elastic/elasticsearch/blob/master/distribution/docker/docker-compose.yml
+# - https://github.com/dadoonet/fscrawler/blob/master/contrib/docker-compose-example/docker-compose.yml
+
+version: '2.2'
+
 services:
-  # FSCrawler
+
+  # fscrawler service for indexing a folder
+  # Also check `fscrawlerrest` service for REST access
   fscrawler:
-    image: toto1310/fscrawler
-    container_name: fscrawler
+    build:
+      context: ./..
+      dockerfile: ./composer/fscrawler-dockerfile
     volumes:
-      - ${FS_CRAWLER_PWD}/config:/root/.fscrawler
-      - ${FS_CRAWLER_PWD}/data:/tmp/es
-    environment:
-      - FS_URL=/tmp/es
-      - ELASTICSEARCH_URL=http://{ES_IP_HOST}:9200
-      - ELASTICSEARCH_INDEX=${FS_CRAWLER_ELASTIC_SEARCH_INDEX}
-    command: |
-      /bin/bash -c "
-        envsubst < /root/.fscrawler/_template.yaml > /root/.fscrawler/_settings.yaml \
-        && fscrawler job_name"
+    - ${PATH_LOCAL_DIR_IN_HOST}/fscrawler/data/:/usr/share/fscrawler/data/:ro
+    - ${PATH_LOCAL_DIR_IN_HOST}/fscrawler/config/docker-compose:/usr/share/fscrawler/config-mount/docker-compose
+

@@ -17,12 +17,13 @@ services:
             memlock:
                 soft: -1
                 hard: -1
-        volumes:
-            - ${ELASTIC_SEARCH_DIR_DATA}:/usr/share/elasticsearch/data
+#        volumes:
+#            - ${PATH_LOCAL_DIR_IN_HOST}/es/data:/usr/share/elasticsearch/data
+
         ports:
             - 9200:9200
-    dejavu:
-        image: appbaseio/dejavu
-        container_name: dejavu
-        ports:
-            - 1358:1358
+#    dejavu:
+#        image: appbaseio/dejavu
+#        container_name: dejavu
+#        ports:
+#            - 1358:1358

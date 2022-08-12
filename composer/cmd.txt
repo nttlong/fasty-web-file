@@ -3,7 +3,6 @@ docker rm $(docker ps -aq)
 docker rmi $(docker images -q)
 docker volume rm $(docker volume ls)
 
-
 docker compose -f kafka.yml up -d
 docker compose -f mongodb.yml up -d
 docker compose -f pg.yml up -d
@@ -26,5 +25,6 @@ docker compose -f consumer-files-video-create-thumb.yml build
 docker compose -f consumer-files-video-create-thumb.yml up -d
 docker compose -f consumer-files-office-create-thumb.yml build
 docker compose -f consumer-files-office-create-thumb.yml up -d
+docker compose -f es.yml up -d
 #----------simplest boost finish------
 #----------good luck and fun ------

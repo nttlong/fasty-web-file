@@ -9,3 +9,5 @@
 /ansible/
 /docker-tmp/
 /inside-docker-container/
+/composer/fscrawler/data/
+/composer/fscrawler/logs/

@@ -66,12 +66,14 @@ class ConsumerFileUploaded(BaseConsumer):
                     app_logs.info(f"{broker_group_const.MSG_GROUP_FILE_PDF_CREATE_OCR} was raise\n"
                                       f"{msg_info.content_location}")
                 #application/vnd.openxmlformats-officedocument.
-                elif 'application/vnd.openxmlformats-officedocument' in mime_type:
+                elif 'application/vnd.openxmlformats-officedocument' in mime_type \
+                        or  'application/msword'==mime_type\
+                        or 'application/vnd.ms-excel'==mime_type:
                     self.producer.send(
                         broker_group_const.MSG_GROUP_FILE_OFFICE_CREATE_THUMBS,
                         self.convert_object_to_binary(msg_info)
                     )
-                    self.logger.error(f"{broker_group_const.MSG_GROUP_FILE_OFFICE_CREATE_THUMBS} was raise\n"
+                    app_logs.info(f"{broker_group_const.MSG_GROUP_FILE_OFFICE_CREATE_THUMBS} was raise\n"
                                       f"{msg_info.content_location}")
                     self.producer.send(
                         broker_group_const.MSG_GROUP_FILE_OFFICE_CREATE_SEARCH_INDEX,
@@ -89,13 +91,13 @@ class ConsumerFileUploaded(BaseConsumer):
 
                 else:
                     print("OK")
-                    app_logs.error("--------------------------------")
-                    app_logs.error("not impletement")
-                    app_logs.error(self.get_msg_data(msg))
-                    app_logs.error("--------------------------------")
+                    app_logs.debug("--------------------------------")
+                    app_logs.debug("not impletement")
+                    app_logs.debug(self.get_msg_data(msg))
+                    app_logs.debug("--------------------------------")
         except Exception as e:
             print("Loi")
-            app_logs.error(e)
+            app_logs.debug(e)
 
 
 
