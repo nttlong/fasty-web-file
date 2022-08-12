@@ -20,6 +20,7 @@ from repositories.apps import AppContext
 from database_connector.database import DbConnection
 import start_config
 class FileProcessingContainer(containers.DeclarativeContainer):
+    import mimetypes_data
     wiring_config = containers.WiringConfiguration(modules=[
 
         "__main__"

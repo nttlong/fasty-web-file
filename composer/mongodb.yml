@@ -9,6 +9,3 @@ services:
       - 27017:27017
     volumes:
       - ${PATH_LOCAL_DIR_IN_HOST}/mongodb/data:/data/db
-
-volumes:
-  mongodb_data_container:

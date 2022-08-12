@@ -1,25 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9e8b92c7-4fdb-4720-bcc8-0afabcfcc65d" name="Changes" comment="ok">
-      <change afterPath="$PROJECT_DIR$/composer/config/job_name/_settings.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/fscrawler-dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/fscrawler/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/fscrawler/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/fscrawler/config/job_name/settings.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/fscrawler/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer/fscrawler/install-fscrawler.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/.env" beforeDir="false" afterPath="$PROJECT_DIR$/composer/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/cmd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/composer/cmd.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/es.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/es.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/from-git-hub/docker-fscrawler/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/composer/from-git-hub/docker-fscrawler/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer/fscrawler.yml" beforeDir="false" afterPath="$PROJECT_DIR$/composer/fscrawler.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_office.py" beforeDir="false" afterPath="$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_office.py" afterDir="false" />
+    <list default="true" id="9e8b92c7-4fdb-4720-bcc8-0afabcfcc65d" name="Changes" comment="ok&#10;misc updates for fscrawler 2.6. Check changelog">
+      <change afterPath="$PROJECT_DIR$/k8s/cmd.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,47 +29,38 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file:///etc/kubernetes/kubelet.conf" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ReCompact/db_async/__init__.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/admin.conf" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app_logs/__init__.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/apps_containers/media_content.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/broker_consumer_file_office_thumb.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/broker_consumer_when_file_create_thumb_video.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/broker_consumer_when_file_image_create_thumbs.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/broker_consumer_when_file_uploaded.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/brokers_services/containers.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/.env" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/cmd.txt" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/config/job_name/_settings.yaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/consumer-files-create-thumb-dockerfile" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/consumer-files-create-thumb.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/consumer-files-office-create-thumb-dockerfile" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/consumer-files-office-create-thumb.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/consumer-files-video-create-thumb-dockerfile" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/consumer-files-video-create-thumb.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/consumer-upload-dockerfile" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/consumer-upload.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/es.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/from-git-hub/docker-fscrawler/Dockerfile" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/from-git-hub/docker-fscrawler/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/fscrawler-dockerfile" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/composer/fscrawler.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/fscrawler/config/job_name/settings.yaml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/fscrawler/docker-compose.yml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/fscrawler/install-fscrawler.sh" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/composer/fscrawler/logs/fscrawler.log" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/composer/kafka.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/mongodb.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/pg.yml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/composer/web.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/config.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/database_connector/database.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/developer/config.yml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/endpoints/__init__.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/handlers/api/apps.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/logs/broker_consumer_file_office_thumb/log.txt" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/k8s_admin.conf" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/must_implement/__init__.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/base.py" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/files_uploaded.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_office.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_video.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/repositories/s3_repository.py" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/services/files.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/services/offices.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/services/videos.py" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file:///usr/lib/python3.8/subprocess.py" root0="SKIP_INSPECTION" />
+    <setting file="file:///usr/lib/python3.8/asyncio/events.py" root0="SKIP_INSPECTION" />
+    <setting file="file:///usr/lib/python3.8/asyncio/tasks.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -101,9 +75,9 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "com.google.cloudcode.ide_session_index": "20220811_0000",
-    "last_opened_file_path": "/home/python/code/fasty-web-file/composer",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "com.google.cloudcode.ide_session_index": "20220824_0002",
+    "last_opened_file_path": "/etc/kubernetes/kubelet.conf",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="Push.Settings">
@@ -130,7 +104,7 @@
       <recent name="$PROJECT_DIR$/database_connector" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.broker_consumer_file_office_thumb">
+  <component name="RunManager" selected="Python.dev_run">
     <configuration name="broker_consumer_file_office_thumb" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="fasty-web-file" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -275,8 +249,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.broker_consumer_when_file_image_create_thumbs" />
         <item itemvalue="Python.dev_run" />
+        <item itemvalue="Python.broker_consumer_when_file_image_create_thumbs" />
         <item itemvalue="Python.broker_consumer_when_file_uploaded" />
         <item itemvalue="Python tests.pytest in test_apps.py" />
         <item itemvalue="Python.dev_main" />
@@ -565,7 +539,42 @@
       <option name="project" value="LOCAL" />
       <updated>1660280212431</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="ok&#10;misc updates for fscrawler 2.6. Check changelog">
+      <created>1660302666741</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1660302666741</updated>
+    </task>
+    <task id="LOCAL-00041" summary="ok&#10;misc updates for fscrawler 2.6. Check changelog">
+      <created>1660302675508</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1660302675508</updated>
+    </task>
+    <task id="LOCAL-00042" summary="ok&#10;misc updates for fscrawler 2.6. Check changelog">
+      <created>1660367427130</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1660367427130</updated>
+    </task>
+    <task id="LOCAL-00043" summary="ok&#10;misc updates for fscrawler 2.6. Check changelog">
+      <created>1660644322285</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1660644322285</updated>
+    </task>
+    <task id="LOCAL-00044" summary="ok&#10;misc updates for fscrawler 2.6. Check changelog">
+      <created>1661334284282</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1661334284282</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -581,7 +590,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="ok" />
+    <MESSAGE value="ok&#10;misc updates for fscrawler 2.6. Check changelog" />
+    <option name="LAST_COMMIT_MESSAGE" value="ok&#10;misc updates for fscrawler 2.6. Check changelog" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -628,18 +638,23 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/handlers/api/file_upload_chunk.py</url>
-          <line>88</line>
+          <line>89</line>
           <option name="timeStamp" value="383" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_video.py</url>
-          <line>69</line>
+          <line>75</line>
           <option name="timeStamp" value="436" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/repositories/kafka_consumers/base.py</url>
-          <line>71</line>
+          <line>101</line>
           <option name="timeStamp" value="442" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/repositories/kafka_consumers/message_file_thumb_video.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="443" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

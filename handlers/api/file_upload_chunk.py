@@ -47,48 +47,52 @@ async def files_upload(app_name: str,
     """
     topic báo hiệu 1 file đã được upload 
     """
-    fx=1
-    register = await file_service.get_upload_by_id(app_name, upload_id=UploadId)
+    app_logs.info("Upload file")
+    try:
+        register = await file_service.get_upload_by_id(app_name, upload_id=UploadId)
 
-    info = await file_storage_service.add_binary(
-        app_name=app_name,
-        relative_path=register.FullFileName,
-        data=FilePart,
-        file_size_in_bytes=register.SizeInBytes
+        info = await file_storage_service.add_binary(
+            app_name=app_name,
+            relative_path=register.FullFileName,
+            data=FilePart,
+            file_size_in_bytes=register.SizeInBytes
 
-    )
-    ret = UploadFilesChunkInfoResult()
-    ret.Data = UploadChunkResult()
-    ret.Data.SizeInHumanReadable = register.SizeInHumanReadable
-    ret.Data.NumOfChunksCompleted = info.uploaded_chunk_index
-    ret.Data.SizeUploadedInHumanReadable = humanize.filesize.naturalsize(info.size_in_bytes)
-    ret.Data.Percent = (info.size_in_bytes / register.SizeInBytes) * 100
-    register.NumOfChunksCompleted = info.uploaded_chunk_index
-    message_service.append_binary_content_to_temp(app_name, register.FullFileName, FilePart)
-    if info.uploaded_chunk_index + 1 == register.NumOfChunks:
-        """
-        Complete yet
-        """
-        register.Status = 1
+        )
+        ret = UploadFilesChunkInfoResult()
+        ret.Data = UploadChunkResult()
+        ret.Data.SizeInHumanReadable = register.SizeInHumanReadable
+        ret.Data.NumOfChunksCompleted = info.uploaded_chunk_index
+        ret.Data.SizeUploadedInHumanReadable = humanize.filesize.naturalsize(info.size_in_bytes)
+        ret.Data.Percent = (info.size_in_bytes / register.SizeInBytes) * 100
+        register.NumOfChunksCompleted = info.uploaded_chunk_index
+        message_service.append_binary_content_to_temp(app_name, register.FullFileName, FilePart)
+        if info.uploaded_chunk_index + 1 == register.NumOfChunks:
+            """
+            Complete yet
+            """
+            register.Status = 1
 
-        from must_implement import new_instance
-        uploaded_file = new_instance(msg_dataTypes.UploadedFile,dict(
-            relative_file_path = register.FullFileName,
-            content_location = message_service.get_content_location(app_name,register.FullFileName),
-            app_name = app_name,
-            upload_id = register._id
+            from must_implement import new_instance
+            uploaded_file = new_instance(msg_dataTypes.UploadedFile,dict(
+                relative_file_path = register.FullFileName,
+                content_location = message_service.get_content_location(app_name,register.FullFileName),
+                app_name = app_name,
+                upload_id = register._id
 
-        ))
+            ))
 
 
-        print(f"upload with {register._id} send mssage to broker")
-        app_logs.debug(f"upload with {register._id} send mssage to broker")
-        try:
-            message_service.send_message_upload_file_to_brokers(uploaded_file)
-        except Exception as e:
-            print("Loi")
+            print(f"upload with {register._id} send mssage to broker")
+            app_logs.debug(f"upload with {register._id} send mssage to broker")
+            try:
+                message_service.send_message_upload_file_to_brokers(uploaded_file)
+            except Exception as e:
+                print("Loi")
 
-            app_logs.debug(e)
-    await file_service.update_register(app_name, register)
-    print("file_service.update_register")
-    return ret
+                app_logs.debug(e)
+        await file_service.update_register(app_name, register)
+        print("file_service.update_register")
+        return ret
+    except Exception as e:
+        app_logs.debug(e)
+        raise e

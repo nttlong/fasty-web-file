@@ -28,6 +28,7 @@ from application_context import AppContext
 
 
 class Container(containers.DeclarativeContainer):
+    import mimetypes_data
     config_path = start_config.get_config_path()
     print(f"Start with {config_path}")
     wiring_config = containers.WiringConfiguration(modules=[

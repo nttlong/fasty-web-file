@@ -9,6 +9,7 @@ services:
     volumes:
       - ${PATH_LOCAL_DIR_IN_HOST}/web-api/tmp-file-upload/:/app/tmp
       - ${PATH_LOCAL_DIR_IN_HOST}/web-api/tmp-processing-file/:/app/content-processing
+      - ${PATH_LOCAL_DIR_IN_HOST}/consumer/logs/:/app/logs
     command: >
       sh -c "
         

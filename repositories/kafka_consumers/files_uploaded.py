@@ -37,7 +37,10 @@ class ConsumerFileUploaded(BaseConsumer):
                       f"App:{msg_info.app_name}\n"
                       f"Resource location:{msg_info.content_location}\n"
                       f"Media id:{msg_info.upload_id}")
-
+                app_logs.info(f"Receive new topic {msg_info.message_type}\n"
+                      f"App:{msg_info.app_name}\n"
+                      f"Resource location:{msg_info.content_location}\n"
+                      f"Media id:{msg_info.upload_id}")
                 if 'image/' in mime_type:
                     self.producer.send(
                         broker_group_const.MSG_GROUP_FILE_IMAGE_CREATE_THUMBS,
