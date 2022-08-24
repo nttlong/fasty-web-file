@@ -16,6 +16,6 @@ preferences: {}
 users:
 - name: default-auth
   user:
-    client-certificate: /var/lib/kubelet/pki/kubelet-client-current.pem
-    client-key: /var/lib/kubelet/pki/kubelet-client-current.pem
-#kubectl get nodes --kubeconfig /etc/kubernetes/admin.conf
+    client-certificate: kubelet-client-current.pem
+    client-key: kubelet-client-current.pem
+#kubectl get nodes --kubeconfig kubelet.conf

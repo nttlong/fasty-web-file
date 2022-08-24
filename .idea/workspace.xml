@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e8b92c7-4fdb-4720-bcc8-0afabcfcc65d" name="Changes" comment="ok&#10;misc updates for fscrawler 2.6. Check changelog">
-      <change afterPath="$PROJECT_DIR$/k8s/cmd.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k8s/kubelet-clinent-current.pem" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k8s/kubelet.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k8s/cmd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/k8s/cmd.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -574,7 +577,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661334284282</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="ok&#10;misc updates for fscrawler 2.6. Check changelog">
+      <created>1661334397371</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1661334397371</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
